@@ -3,34 +3,34 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="description" content="unix blog"/>
-    <meta name="keywords" content="Ubuntu,homeserver,torrent,programming,python,HowTo"/>
+    <meta name="description" content="Personal blog"/>
+    <meta name="keywords" content="Ubuntu,HomeServer,torrent,programming,python,HowTo"/>
 
     <title>{% block title %}{{ title }}{% endblock title %}</title>
 
-    <link href="/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
-    <link rel="alternate" type="application/rss+xml" title="RSS постов" href="http://isudo.ru/feed/"/>
+    <link href="{{ url('static/images/favicon.ico', last=False) }}" rel="shortcut icon" type="image/x-icon"/>
+    <link rel="alternate" type="application/rss+xml" title="RSS постов" href="{{ url('feed') }}"/>
     {% if google_plus %}
         <link rel="author" href="https://plus.google.com/{{ google_plus }}"/>
     {% endif %}
     <link rel="canonical" href="{{ canonical }}"/>
 
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ url('static/css/style.css', last=False) }}"/>
 </head>
 
 <body>
 <div id="wrap">
 
     <div id="container">
-        <div id="header" onclick="location.href='{{ canonical }}'">
+        <div id="header" onclick="location.href='{{ url('/') }}'">
             <div class="fixed"></div>
         </div>
 
         <div id="navigation">
             <ul id="menus">
-                <li class="current_page_item"><a class="home" title="Главная" href="/">Главная</a></li>
+                <li class="current_page_item"><a class="home" title="Главная" href="{{ url('/') }}">Главная</a></li>
                 {% for category in categories %}
-                    <li><a href="/category/{{ category|dash }}/">{{ category }}</a></li>
+                    <li><a href="{{ url('category', category|dash) }}">{{ category }}</a></li>
                 {% endfor %}
                 <li><a class="last-menu" href="javascript:void(0);"></a></li>
             </ul>
@@ -64,6 +64,7 @@
 
         <div id="footer">
             <a id="gotop" href="#" onclick="">Наверх</a>
+            {# TODO: Fix WP link and logo #}
             <a id="powered" href="http://wordpress.org/">WordPress</a>
 
             <div id="copyright">
@@ -77,17 +78,5 @@
     </div>
 </div>
 
-{#<script type="text/javascript">
-    var links = document.getElementsByTagName('link')
-    for (var i = 0; i < links.length; i++) {
-        var href = '/blog' + links[i].attributes.href.value;
-        links[i].href = href;
-    }
-    var links = document.getElementsByTagName('a')
-    for (var i = 0; i < links.length; i++) {
-        var href = '/blog' + links[i].attributes.href.value;
-        links[i].href = href;
-    }
-</script>#}
 </body>
 </html>

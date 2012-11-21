@@ -6,8 +6,8 @@ from shutil import copyfile
 
 from jinja2 import Environment, FileSystemLoader
 
+from isudo.utils import filejoin, TagCloud, Paginator, dash, url
 import conf
-from isudo.utils import filejoin, TagCloud, Paginator, dash
 
 
 class BaseWriter:
@@ -17,6 +17,7 @@ class BaseWriter:
         self._jinja = Environment(loader=FileSystemLoader(conf.TEMPLATE_PATH), trim_blocks=True)
         self._jinja.filters['dash'] = dash
         self.default = conf.TEMPLATE_KWARGS
+        self.default['url'] = url
 
     def render(self, path, template, **kwargs):
         default = self.default.copy()

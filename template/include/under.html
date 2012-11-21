@@ -2,16 +2,16 @@
     <span class="categories">Categories:</span>
     <span>
     {% for category in post.meta.categories[0:-1] %}
-        <a href="/category/{{ category|dash }}/" rel="category tag">{{ category }}</a>,
+        <a href="{{ url('category', category|dash) }}" rel="category tag">{{ category }}</a>,
     {% endfor %}
-        <a href="/category/{{ post.meta.categories[-1]|dash }}/" rel="category tag">{{ post.meta.categories[-1] }}</a>
+        <a href="{{ url('category', post.meta.categories[-1]|dash) }}" rel="category tag">{{ post.meta.categories[-1] }}</a>
     </span>
 
     <span class="tags">Tags: </span>
     <span>
     {% for tag in post.meta.tags[0:-1] %}
-        <a href="/tag/{{ tag|dash }}/" rel="tag">{{ tag }}</a>,
+        <a href="{{ url('tag', tag|dash) }}" rel="tag">{{ tag }}</a>,
     {% endfor %}
-        <a href="/tag/{{ post.meta.tags[-1]|dash }}/" rel="tag">{{ post.meta.tags[-1] }}</a>
+        <a href="{{ url('tag', post.meta.tags[-1]|dash) }}" rel="tag">{{ post.meta.tags[-1] }}</a>
     </span>
 </div>

@@ -1,8 +1,8 @@
 {% macro link(value, text=None) %}
     {% if value == 1 %}
-        <a href="/">{{ text|default(value, true) }}</a>
+        <a href="{{ url('/') }}">{{ text|default(value, true) }}</a>
     {% else %}
-        <a href="/page/{{ value }}/">{{ text|default(value, true) }}</a>
+        <a href="{{ url('page', value) }}">{{ text|default(value, true) }}</a>
     {% endif %}
 {% endmacro %}
 

@@ -11,10 +11,21 @@ def urljoin(*args, last=True):
     """
     Make absolute url with slash on end if `last`
     """
-    url = '/' + '/'.join(map(str, args))
-    if last:
+
+    def f(str):
+        if str.startswith('/'):
+            str = str[1:]
+        if str.endswith('/'):
+            str = str[:-1]
+        return str
+
+    args = filter(lambda x: bool(x) and x != '/', args)
+    args = map(str, args)
+    args = list(map(f, args))
+    url = '/' + '/'.join(args)
+    if last and url != '/':
         url += '/'
-    return url.replace('//', '/')
+    return url
 
 
 def filejoin(*args):
@@ -22,6 +33,15 @@ def filejoin(*args):
     Make relative file path
     """
     return os.path.join(*map(str, args))
+
+
+def url(*args, last=True):
+    """
+    Same as `urljoin` but can add `conf.DOMAIN_SUB_FOLDER`
+    """
+    if conf.DOMAIN_SUB_FOLDER:
+        return urljoin(conf.DOMAIN_SUB_FOLDER, *args, last=last)
+    return urljoin(*args, last=last)
 
 
 def dash(name):
