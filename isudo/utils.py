@@ -1,27 +1,33 @@
 # -*- coding: utf-8 -*-
 from collections import namedtuple
-import os
 from math import ceil
 from itertools import groupby
 
 import conf
 
+def delslash(str):
+    """
+    Remove slash from start and end
+
+    :type str:
+    :rtype: str
+    """
+    if str.startswith('/'):
+        str = str[1:]
+    if str.endswith('/'):
+        str = str[:-1]
+    return str
+
 
 def urljoin(*args, last=True):
     """
     Make absolute url with slash on end if `last`
+
+    :rtype: str
     """
-
-    def f(str):
-        if str.startswith('/'):
-            str = str[1:]
-        if str.endswith('/'):
-            str = str[:-1]
-        return str
-
     args = filter(lambda x: bool(x) and x != '/', args)
     args = map(str, args)
-    args = list(map(f, args))
+    args = list(map(delslash, args))
     url = '/' + '/'.join(args)
     if last and url != '/':
         url += '/'
@@ -31,8 +37,13 @@ def urljoin(*args, last=True):
 def filejoin(*args):
     """
     Make relative file path
+
+    :rtype: str
     """
-    return os.path.join(*map(str, args))
+    args = filter(bool, args)
+    args = map(delslash, args)
+    args = map(str, args)
+    return '/'.join(args)
 
 
 def url(*args, last=True):

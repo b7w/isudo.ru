@@ -337,6 +337,12 @@ blockquote, pre {
 /* MAIN END */
 
 /* BOX START */
+.message {
+    border-left: 2px solid #DDD;
+    color: #2E2E99;
+    font-weight: bold;
+}
+
 .box-caption h3 {
     font-size: 14px;
 }
