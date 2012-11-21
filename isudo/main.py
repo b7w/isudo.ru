@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 import os
 from shutil import copytree, rmtree
+from importlib import import_module
 
 import conf
 from isudo.reader import Reader
 from isudo.utils import filejoin
+from isudo.writer import IndexWriter, ResourcesWriter, PostWriter, TagsPageWriter, TagsWriter, CategoriesWriter
 
 
 class StaticBlog:
@@ -12,10 +14,21 @@ class StaticBlog:
     Main class to generate static blog
     """
 
-    def __init__(self, writers=None):
+    def __init__(self):
         self.reader = Reader()
         self.posts = []
-        self.writers = writers or conf.WRITES
+        self.writers = [IndexWriter, ResourcesWriter, PostWriter, TagsPageWriter, TagsWriter, CategoriesWriter]
+
+    def get_backend(self):
+        """
+        Return file serving backend
+        """
+        #TODO: make support for string imports
+        import_path = conf.VIEWER_SERVE['BACKEND']
+        dot = import_path.rindex('.')
+        module, class_name = import_path[:dot], import_path[dot + 1:]
+        mod = import_module(module)
+        return getattr(mod, class_name)
 
     def load(self):
         """

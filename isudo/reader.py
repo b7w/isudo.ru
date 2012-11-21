@@ -4,7 +4,7 @@ import re
 import yaml
 
 from isudo.post import Meta, Post
-from isudo.utils import urljoin
+from isudo.utils import url
 
 
 class Macros:
@@ -32,14 +32,14 @@ class Macros:
 class IconMacros(Macros):
     def render(self, post):
         t = """<a href="{url}"><img src="{image}" class="alignleft"/></a>"""
-        image = urljoin(post.url, self.body, last=False)
+        image = url(post.url, self.body, last=False)
         return t.format(url=post.url, image=image)
 
 
 class ImageMacros(Macros):
     def render(self, post):
         t = """<a href="{url}"><img src="{image}"/></a>"""
-        image = urljoin(post.url, self.body, last=False)
+        image = url(post.url, self.body, last=False)
         return t.format(url=post.url, image=image)
 
 

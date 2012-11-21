@@ -11,7 +11,7 @@
         <div class="box">
             <div>
                 {% for tag, size, color in tags.cloud(8, 20) %}
-                    <a href="/tag/{{ tag|dash }}/" rel="tag" style="font-size:{{ size }}pt; color:{{ color }};">{{ tag }}</a>
+                    <a href="{{ url('tag', tag|dash) }}" rel="tag" style="font-size:{{ size }}pt; color:{{ color }};">{{ tag }}</a>
                 {% endfor %}
             </div>
         </div>

@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="post">
-        <h2><a class="title" href="{{ post.url }}" rel="bookmark">{{ post.title }}</a></h2>
+        <h2><a class="title" href="{{ url(post.url) }}" rel="bookmark">{{ post.title }}</a></h2>
 
         <div class="info">
             <span class="date">{{ post.meta.time.strftime('%d %B %Y') }}</span>
