@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="description" content="unix blog"/>
+    <meta name="keywords" content="Ubuntu,homeserver,torrent,programming,python,HowTo"/>
+
+    <title>{% block title %}{{ title }}{% endblock title %}</title>
+
+    <link href="/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link rel="alternate" type="application/rss+xml" title="RSS постов" href="http://isudo.ru/feed/"/>
+    {% if google_plus %}
+        <link rel="author" href="https://plus.google.com/{{ google_plus }}"/>
+    {% endif %}
+    <link rel="canonical" href="{{ canonical }}"/>
+
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+</head>
+
+<body>
+<div id="wrap">
+
+    <div id="container">
+        <div id="header" onclick="location.href='{{ canonical }}'">
+            <div class="fixed"></div>
+        </div>
+
+        <div id="navigation">
+            <ul id="menus">
+                <li class="current_page_item"><a class="home" title="Главная" href="/">Главная</a></li>
+                {% for category in categories %}
+                    <li><a href="/category/{{ category|dash }}/">{{ category }}</a></li>
+                {% endfor %}
+                <li><a class="last-menu" href="javascript:void(0);"></a></li>
+            </ul>
+
+            <div class="fixed"></div>
+        </div>
+
+        <div id="content">
+
+            <div id="main">
+
+                {% include "include/tabs.html" %}
+
+                {% block content %}{% endblock content %}
+
+                {% if page %}
+                    {% include "include/paging.html" %}
+                {% endif %}
+
+            </div>
+
+            <div id="sidebar">
+                {% include "sidebar/profile.html" %}
+
+                {% include "sidebar/links.html" %}
+            </div>
+
+
+            <div class="fixed"></div>
+        </div>
+
+        <div id="footer">
+            <a id="gotop" href="#" onclick="">Наверх</a>
+            <a id="powered" href="http://wordpress.org/">WordPress</a>
+
+            <div id="copyright">
+                Copyright © 2008-{{ today.year }} Black&amp;White's Blog
+            </div>
+            <div id="theme-info">
+                Template created by <a href="#">B7W</a> and designed by <a href="http://www.neoease.com/">MG12</a>.
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{#<script type="text/javascript">
+    var links = document.getElementsByTagName('link')
+    for (var i = 0; i < links.length; i++) {
+        var href = '/blog' + links[i].attributes.href.value;
+        links[i].href = href;
+    }
+    var links = document.getElementsByTagName('a')
+    for (var i = 0; i < links.length; i++) {
+        var href = '/blog' + links[i].attributes.href.value;
+        links[i].href = href;
+    }
+</script>#}
+</body>
+</html>
