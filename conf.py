@@ -2,12 +2,12 @@
 
 # Classes that generate something
 WRITERS = [
-    'IndexWriter',
-    'ResourcesWriter',
-    'PostWriter',
-    'TagsPageWriter',
-    'TagsWriter',
-    'CategoriesWriter',
+    'isudo.writer.IndexWriter',
+    'isudo.writer.ResourcesWriter',
+    'isudo.writer.PostWriter',
+    'isudo.writer.TagsPageWriter',
+    'isudo.writer.TagsWriter',
+    'isudo.writer.CategoriesWriter',
 ]
 
 # Path where html template exists

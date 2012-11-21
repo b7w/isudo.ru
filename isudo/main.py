@@ -6,7 +6,6 @@ from importlib import import_module
 import conf
 from isudo.reader import Reader
 from isudo.utils import filejoin
-from isudo.writer import IndexWriter, ResourcesWriter, PostWriter, TagsPageWriter, TagsWriter, CategoriesWriter
 
 
 class StaticBlog:
@@ -14,19 +13,17 @@ class StaticBlog:
     Main class to generate static blog
     """
 
-    def __init__(self):
+    def __init__(self, writers=None):
         self.reader = Reader()
         self.posts = []
-        self.writers = [IndexWriter, ResourcesWriter, PostWriter, TagsPageWriter, TagsWriter, CategoriesWriter]
+        self.writers = writers or list(map(self._get_class, conf.WRITERS))
 
-    def get_backend(self):
+    def _get_class(self, package):
         """
-        Return file serving backend
+        get string package name to class and return link for it
         """
-        #TODO: make support for string imports
-        import_path = conf.VIEWER_SERVE['BACKEND']
-        dot = import_path.rindex('.')
-        module, class_name = import_path[:dot], import_path[dot + 1:]
+        dot = package.rindex('.')
+        module, class_name = package[:dot], package[dot + 1:]
         mod = import_module(module)
         return getattr(mod, class_name)
 
