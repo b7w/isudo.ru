@@ -3,6 +3,7 @@ from datetime import datetime
 
 from markdown import markdown
 
+import conf
 from isudo.utils import urljoin, filejoin
 
 
@@ -65,21 +66,28 @@ class Post:
     def title(self):
         return self.meta.title
 
+    def _url(self, func):
+        """
+        http abs url
+        """
+        if self.meta.url.startswith('/'):
+            return self.meta.url
+        folder = conf.POST_PATH_STYLE.format(date=self.meta.time)
+        return func(*(folder, self.meta.url))
+
     @property
     def url(self):
         """
         http abs url
         """
-        time = self.meta.time
-        return urljoin(*(time.year, time.month, self.meta.url))
+        return self._url(urljoin)
 
     @property
     def furl(self):
         """
         file relative url
         """
-        time = self.meta.time
-        return filejoin(*(time.year, time.month, self.meta.url))
+        return self._url(filejoin)
 
     def __repr__(self):
         return "Post{{{0},{1}}}".format(self.meta, self.post)

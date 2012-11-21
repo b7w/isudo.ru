@@ -14,7 +14,7 @@ WRITERS = [
 TEMPLATE_PATH = 'template'
 
 # If you want something like http://isudo.ru/blog/
-DOMAIN_SUB_FOLDER = 'blog'
+DOMAIN_SUB_FOLDER = ''
 
 TEMPLATE_KWARGS = {
     'title': 'Black&White’s Blog',
@@ -27,6 +27,11 @@ DEPLOY_PATH = 'deploy'
 
 # Path where to get posts
 POST_PATH = 'posts'
+
+# Default url style, for new posts.
+# To override use absolute utl in post meta info.
+# Use date variable of datetime type, `{date.year}`.
+POST_PATH_STYLE = '/{date.year}/{date.month}'
 
 # Main POSTS
 POST_PER_PAGE = 4
