@@ -1,0 +1,30 @@
+{% macro link(value, text=None) %}
+    {% if value == 1 %}
+        <a href="/">{{ text|default(value, true) }}</a>
+    {% else %}
+        <a href="/page/{{ value }}/">{{ text|default(value, true) }}</a>
+    {% endif %}
+{% endmacro %}
+
+
+<div id="page-nav">
+    <span class="pages">Страница {{ page.current }} из {{ page.count() }}</span>
+
+    {% if page.has_previous() %}
+        {{ link( page.previous(), '«' ) }}
+    {% endif %}
+
+    {% for i in page.previous_range() %}
+        {{ link( i ) }}
+    {% endfor %}
+
+    <span class="current">{{ page.current }}</span>
+
+    {% for i in page.next_range() %}
+        {{ link( i ) }}
+    {% endfor %}
+
+    {% if page.has_next() %}
+        {{ link( page.next(), '»' ) }}
+    {% endif %}
+</div>

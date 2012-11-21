@@ -1,0 +1,12 @@
+<div style="margin-bottom: 15px;">
+    <ul class="tabs tabs1">
+        <li class="t1 tab-current" style="cursor: pointer; "><a>Облако меток</a></li>
+    </ul>
+
+    <div class="t1">
+        {% for tag, size, color in tags.cloud(8, 16, size=16) %}
+            <a href="/tag/{{ tag|dash }}/" rel="tag" style="font-size:{{ size }}pt; color:{{ color }};">{{ tag }}</a>
+        {% endfor %}
+        <a href="/tags/" rel="tag" style="font-size:8pt; color:#CCCCCC;"><i>all tags</i></a>
+    </div>
+</div>
