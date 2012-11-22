@@ -81,9 +81,12 @@ class ResourcesWriter(BaseWriter):
                 folder = os.path.dirname(post.path)
                 for res in post.resources:
                     r = filejoin(folder, res.body)
-                    s = filejoin(conf.DEPLOY_PATH, post.furl, res.body)
-                    if not os.path.exists(s):
-                        copyfile(r, s)
+                    if os.path.exists(r):
+                        s = filejoin(conf.DEPLOY_PATH, post.furl, res.body)
+                        if not os.path.exists(s):
+                            copyfile(r, s)
+                    else:
+                        print('#! No resource found: {0}'.format(r))
 
 
 class PostWriter(BaseWriter):

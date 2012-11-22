@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+from datetime import datetime
 from shutil import copytree, rmtree
 from importlib import import_module
 
@@ -62,3 +63,25 @@ class StaticBlog:
             print('# Deploy static')
             copytree(template, deploy)
 
+
+    def create_post(self, url):
+        """
+        Create new post file. Get url name of new post.
+
+        :type url: str
+        """
+        time = datetime.now()
+        folder = conf.POST_PATH_STYLE.format(date=time)
+        fname = '{date.year}-{date.month}-{date.day}-{name}.md'.format(date=time, name=url)
+        path = filejoin(conf.POST_PATH, folder, fname)
+        os.makedirs(filejoin(conf.POST_PATH, folder), exist_ok=True)
+
+        print('# creating new post..')
+        print('# file: {0} '.format(path))
+        with open(path, 'w', encoding='utf8') as f:
+            f.write('# title: {0}\n'.format(url))
+            f.write('# url: {0}\n'.format(url))
+            f.write('# categories: []\n')
+            f.write('# tags: []\n')
+            f.write('# time: {0}\n'.format(time))
+            f.write('\nicon{ logo.png }\nHello world\n')
