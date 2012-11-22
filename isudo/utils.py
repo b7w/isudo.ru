@@ -5,9 +5,13 @@ from itertools import groupby
 
 import conf
 
+
 def delslash(str):
     """
     Remove slash from start and end
+
+    >>> delslash('/foo/bar/')
+    'foo/bar'
 
     :type str:
     :rtype: str
@@ -22,6 +26,11 @@ def delslash(str):
 def urljoin(*args, last=True):
     """
     Make absolute url with slash on end if `last`
+
+    >>> urljoin('foo', 'bar')
+    '/foo/bar/'
+    >>> urljoin('foo', 'bar', last=False)
+    '/foo/bar'
 
     :rtype: str
     """
@@ -38,6 +47,9 @@ def filejoin(*args):
     """
     Make relative file path
 
+    >>> filejoin('foo', 'bar')
+    'foo/bar'
+
     :rtype: str
     """
     args = filter(bool, args)
@@ -49,6 +61,8 @@ def filejoin(*args):
 def url(*args, last=True):
     """
     Same as `urljoin` but can add `conf.DOMAIN_SUB_FOLDER`
+
+    :rtype: str
     """
     if conf.DOMAIN_SUB_FOLDER:
         return urljoin(conf.DOMAIN_SUB_FOLDER, *args, last=last)
@@ -57,7 +71,8 @@ def url(*args, last=True):
 
 def dash(name):
     """
-    Get string and make better url from it
+    >>> dash('Some tag')
+    'some-tag'
 
     :type name: str
     :rtype: str
