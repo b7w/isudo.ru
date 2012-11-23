@@ -7,6 +7,7 @@ It is static blog generator. It is like [pelican](https://github.com/getpelican/
 	* python 3
 	* jinja2
 	* markdown
+	* pygments
 	* pyyaml
 	* baker
 

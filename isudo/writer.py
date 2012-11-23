@@ -27,8 +27,8 @@ class BaseWriter:
             html = self._jinja.get_template(template).render(**default)
             f.write(html)
 
-    def mkdir(self, url):
-        os.makedirs(filejoin(conf.DEPLOY_PATH, url), exist_ok=True)
+    def mkdir(self, url, *args):
+        os.makedirs(filejoin(conf.DEPLOY_PATH, url, *args), exist_ok=True)
 
     def build(self, posts):
         """
@@ -77,11 +77,11 @@ class ResourcesWriter(BaseWriter):
     def write(self, posts):
         for post in posts:
             if post.resources:
-                self.mkdir(post.furl)
                 folder = os.path.dirname(post.path)
                 for res in post.resources:
                     r = filejoin(folder, res.body)
                     if os.path.exists(r):
+                        self.mkdir(post.furl, os.path.dirname(res.body))
                         s = filejoin(conf.DEPLOY_PATH, post.furl, res.body)
                         if not os.path.exists(s):
                             copyfile(r, s)

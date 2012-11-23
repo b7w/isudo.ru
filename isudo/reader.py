@@ -31,21 +31,21 @@ class Macros:
 
 class IconMacros(Macros):
     def render(self, post):
-        t = """<a href="{url}"><img src="{image}" class="alignleft"/></a>"""
+        t = """<a href="{url}"><img src="{image}" class="align-left"/></a>"""
         image = url(post.url, self.body, last=False)
         return t.format(url=post.url, image=image)
 
 
 class ImageMacros(Macros):
     def render(self, post):
-        t = """<a href="{url}"><img src="{image}"/></a>"""
+        t = """<a href="{image}"><img src="{image}" class="align-center"/></a>"""
         image = url(post.url, self.body, last=False)
-        return t.format(url=post.url, image=image)
+        return t.format(image=image)
 
 
 class Reader:
-    ICON = re.compile('icon\{\s*[\w\.-]+\s*}')
-    IMAGE = re.compile('image\{\s*[\w\.-]+\s*}')
+    ICON = re.compile('icon\{\s*[\w\./-]+\s*}')
+    IMAGE = re.compile('image\{\s*[\w\./-]+\s*}')
 
     def read(self, path):
         with open(path, encoding='utf8') as f:
