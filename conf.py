@@ -31,7 +31,7 @@ POST_PATH = 'posts'
 # Default url style, for new posts.
 # To override use absolute utl in post meta info.
 # Use date variable of datetime type, `{date.year}`.
-POST_PATH_STYLE = '/{date.year}/{date.month}'
+POST_PATH_STYLE = '/{date.year}/{date.month:02d}'
 
 # Main POSTS
 POST_PER_PAGE = 4

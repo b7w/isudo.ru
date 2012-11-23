@@ -60,7 +60,7 @@ class Post:
     def _render(self, text):
         for res in self.resources:
             text = res.replace(text)
-        return markdown(text)
+        return markdown(text, ['codehilite(noclasses=True)'])
 
     @property
     def title(self):
