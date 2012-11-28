@@ -77,6 +77,15 @@ blockquote, pre {
     padding: 8px 8px 8px 16px;
     margin: 8px;
     color: #4b157e;
+    word-wrap: break-word;
+}
+
+code {
+    margin: 0 2px;
+    padding: 0px 5px;
+    border: 1px solid #EAEAEA;
+    background-color: #F8F8F8;
+    border-radius: 3px;
 }
 
 .align-left, img[alt=left] {
