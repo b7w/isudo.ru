@@ -80,6 +80,10 @@ def dash(name):
     return name.replace(' ', '-').lower()
 
 
+class BlogError(Exception):
+    pass
+
+
 class TagCloud():
     """
     Help to make tag cloud. All tags stored in `all` field.
