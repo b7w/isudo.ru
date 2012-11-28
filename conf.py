@@ -34,7 +34,7 @@ POST_PATH = 'posts'
 POST_PATH_STYLE = '/{date.year}/{date.month:02d}'
 
 # Main POSTS
-POST_PER_PAGE = 4
+POST_PER_PAGE = 8
 
 # Two colors to make nice transition from most used tags to less used.
 # Type (r,g,b),(r,g,b)

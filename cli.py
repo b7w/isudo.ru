@@ -6,6 +6,7 @@ import baker
 
 import conf
 from isudo.main import StaticBlog
+from isudo.utils import BlogError
 
 
 @baker.command
@@ -41,4 +42,7 @@ def new(url):
     blog.create_post(url)
 
 
-baker.run()
+try:
+    baker.run()
+except BlogError as e:
+    print('Error:', e)
