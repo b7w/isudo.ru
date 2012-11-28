@@ -79,13 +79,13 @@ blockquote, pre {
     color: #4b157e;
 }
 
-.align-left {
+.align-left, img[alt=left] {
     float: left;
     text-align: left;
     margin-right: 10px;
 }
 
-.align-center {
+.align-center, img[alt=center] {
     display: block;
     margin-left: auto;
     margin-right: auto;
