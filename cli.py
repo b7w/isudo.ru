@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 from http.server import HTTPServer, SimpleHTTPRequestHandler
+from time import time
 
 import baker
 
@@ -10,14 +11,17 @@ from isudo.utils import BlogError
 
 
 @baker.command
-def build():
+def build(pattern=None):
     """
     Build static site
     """
     blog = StaticBlog()
-    blog.load()
+    blog.load(pattern=pattern)
     blog.copy_static()
-    blog.build()
+    if pattern:
+        blog.build_posts()
+    else:
+        blog.build()
 
 
 @baker.command
@@ -34,6 +38,15 @@ def server(port=8000):
 
 
 @baker.command
+def clear():
+    """
+    Remove deploy directory
+    """
+    blog = StaticBlog()
+    blog.clear()
+
+
+@baker.command
 def new(url):
     """
     Create new post file. Get url name of new post.
@@ -43,6 +56,8 @@ def new(url):
 
 
 try:
+    t = time()
     baker.run()
+    print('# done {0:.4f} second'.format(time() - t))
 except BlogError as e:
     print('Error:', e)
