@@ -18,10 +18,7 @@ def build(pattern=None):
     blog = StaticBlog()
     blog.load(pattern=pattern)
     blog.copy_static()
-    if pattern:
-        blog.build_posts()
-    else:
-        blog.build()
+    blog.build()
 
 
 @baker.command

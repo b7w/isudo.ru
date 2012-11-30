@@ -8,7 +8,6 @@ from importlib import import_module
 import conf
 from isudo.reader import Reader
 from isudo.utils import filejoin
-from isudo.writer import PostWriter
 
 
 class StaticBlog:
@@ -53,13 +52,6 @@ class StaticBlog:
             writer = cls()
             print('# {0}'.format(writer.name))
             writer.build(self.posts)
-
-    def build_posts(self):
-        writer = PostWriter()
-        print('# {0}'.format(writer.name))
-        writer.build(self.posts)
-        for post in self.posts:
-            print('#  new "{0}"'.format(post.url))
 
     def copy_static(self, override=False):
         """
