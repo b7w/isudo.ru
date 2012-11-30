@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from glob import glob
 import os
 from datetime import datetime
 from shutil import copytree, rmtree
@@ -7,6 +8,7 @@ from importlib import import_module
 import conf
 from isudo.reader import Reader
 from isudo.utils import filejoin
+from isudo.writer import PostWriter
 
 
 class StaticBlog:
@@ -28,15 +30,19 @@ class StaticBlog:
         mod = import_module(module)
         return getattr(mod, class_name)
 
-    def load(self):
+    def load(self, pattern=None):
         """
         Load all markdown files to memory
         """
-        for root, folder, files in os.walk(conf.POST_PATH):
-            for name in files:
-                if name.endswith('.md'):
-                    path = filejoin(root, name)
-                    self.posts.append(self.reader.read(path))
+        if pattern:
+            for path in glob(filejoin(conf.POST_PATH, pattern + '.md')):
+                self.posts.append(self.reader.read(path))
+        else:
+            for root, folder, files in os.walk(conf.POST_PATH):
+                for name in files:
+                    if name.endswith('.md'):
+                        path = filejoin(root, name)
+                        self.posts.append(self.reader.read(path))
         self.posts.sort(key=lambda x: x.meta.time, reverse=True)
 
     def build(self):
@@ -47,6 +53,13 @@ class StaticBlog:
             writer = cls()
             print('# {0}'.format(writer.name))
             writer.build(self.posts)
+
+    def build_posts(self):
+        writer = PostWriter()
+        print('# {0}'.format(writer.name))
+        writer.build(self.posts)
+        for post in self.posts:
+            print('#  new "{0}"'.format(post.url))
 
     def copy_static(self, override=False):
         """
@@ -85,3 +98,6 @@ class StaticBlog:
             f.write('# tags: []\n')
             f.write('# time: {0}\n'.format(time))
             f.write('\nicon{ logo.png }\nHello world\n')
+
+    def clear(self):
+        rmtree(conf.DEPLOY_PATH, ignore_errors=True)
