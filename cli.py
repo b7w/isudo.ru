@@ -57,4 +57,4 @@ try:
     baker.run()
     print('# done {0:.4f} second'.format(time() - t))
 except BlogError as e:
-    print('Error:', e)
+    print('#! Error:', e)
