@@ -111,6 +111,7 @@ class TagCloud():
         weight = self._weight()
         lens = [l for k, l in weight]
         count = max(lens) - min(lens)
+        count = count if count else max(lens)
 
         font = self._font_eval(count, font_min, font_max)
         color = self._color_eval(count, self.color_min, self.color_max)
