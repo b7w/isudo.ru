@@ -49,12 +49,15 @@ class Post:
         self.resources = []
 
     def render(self):
-        return self._render(self.post.replace('[more]', ''))
+        post = self.post.replace('[more]', '')
+        post = post.replace('[clear]', '<div class="fixed"></div>')
+        return self._render(post)
 
     def render_short(self):
-        index = self.post.find('[more]')
+        text = self.post.replace('[clear]', '')
+        index = text.find('[more]')
         if index > 0:
-            return self._render(self.post[0:index])
+            return self._render(text[0:index])
         return self.render()
 
     def _render(self, text):

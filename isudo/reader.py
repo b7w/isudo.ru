@@ -2,6 +2,7 @@
 import re
 
 import yaml
+from yaml.error import MarkedYAMLError
 
 from isudo.post import Meta, Post
 from isudo.utils import url, BlogError
@@ -31,16 +32,19 @@ class Resource:
 
 class Reader:
     def read(self, path):
-        with open(path, encoding='utf8') as f:
-            raw = f.read().strip()
+        try:
+            with open(path, encoding='utf8') as f:
+                raw = f.read().strip()
 
-        meta, text = raw.split('\n\n', maxsplit=1)
-        meta = meta.replace('#', '')
-        meta = yaml.load(meta)
-        if not set(meta.keys()).issuperset(['title', 'url', 'time']):
-            raise BlogError('Post "{0}" meta need at least [title, url, time]'.format(path))
-        meta = Meta.fromDict(meta)
+            meta, text = raw.split('\n\n', maxsplit=1)
+            meta = meta.replace('#', '')
+            meta = yaml.load(meta)
+            if not set(meta.keys()).issuperset(['title', 'url', 'time']):
+                raise BlogError('Post "{0}" meta need at least [title, url, time]'.format(path))
+            meta = Meta.fromDict(meta)
 
-        post = Post(path, meta, text.strip())
-        post.resources = [Resource(i, post) for i in Resource.RE.findall(text)]
-        return post
+            post = Post(path, meta, text.strip())
+            post.resources = [Resource(i, post) for i in Resource.RE.findall(text)]
+            return post
+        except MarkedYAMLError as e:
+            raise BlogError('Reading meta in "{0}"\n{1}'.format(path, e))
