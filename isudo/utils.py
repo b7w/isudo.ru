@@ -3,7 +3,7 @@ from collections import namedtuple
 from math import ceil
 from itertools import groupby
 
-import conf
+from isudo import conf
 
 
 def delslash(str):

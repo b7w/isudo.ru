@@ -5,7 +5,7 @@ from datetime import datetime
 from shutil import copytree, rmtree
 from importlib import import_module
 
-import conf
+from isudo import conf
 from isudo.reader import Reader
 from isudo.utils import filejoin
 
