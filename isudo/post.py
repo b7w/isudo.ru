@@ -3,7 +3,7 @@ from datetime import datetime
 
 from markdown import markdown
 
-import conf
+from isudo import conf
 from isudo.utils import urljoin, filejoin
 
 

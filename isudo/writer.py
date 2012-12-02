@@ -6,8 +6,8 @@ from shutil import copyfile
 
 from jinja2 import Environment, FileSystemLoader
 
+from isudo import conf
 from isudo.utils import filejoin, TagCloud, Paginator, dash, url
-import conf
 
 
 class BaseWriter:

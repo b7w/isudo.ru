@@ -9,6 +9,16 @@ from isudo.utils import url, BlogError
 
 
 class Resource:
+    """
+    Some hack to replace relative resource links in `.md` to absolute,
+    and copy resource.
+
+    `![](~image.png)` -> `![](/2012/10/post-name/image.png)`
+
+    `RE` field - find all resources
+    `render` - make new text
+    `replace` - replace old to new
+    """
     RE = re.compile('\(~[\w\./-]+\)')
 
     def __init__(self, text, post):
@@ -31,20 +41,35 @@ class Resource:
 
 
 class Reader:
-    def read(self, path):
-        try:
-            with open(path, encoding='utf8') as f:
-                raw = f.read().strip()
+    """
+    Call `read` to read md file with `path`.
+    Not thread safe.
+    """
 
-            meta, text = raw.split('\n\n', maxsplit=1)
+    def read_meta(self, meta):
+        try:
             meta = meta.replace('#', '')
             meta = yaml.load(meta)
-            if not set(meta.keys()).issuperset(['title', 'url', 'time']):
-                raise BlogError('Post "{0}" meta need at least [title, url, time]'.format(path))
-            meta = Meta.fromDict(meta)
-
-            post = Post(path, meta, text.strip())
-            post.resources = [Resource(i, post) for i in Resource.RE.findall(text)]
-            return post
+            if set(meta.keys()).issuperset(['title', 'url', 'time']):
+                return Meta.fromDict(meta)
         except MarkedYAMLError as e:
-            raise BlogError('Reading meta in "{0}"\n{1}'.format(path, e))
+            raise BlogError('Reading meta in "{0}"\n{1}'.format(self.path, e))
+
+    def process(self, raw):
+        meta, text = raw.split('\n\n', maxsplit=1)
+        meta = self.read_meta(meta)
+        if not meta:
+            raise BlogError('Post "{0}" meta need at least [title, url, time]'.format(self.path))
+
+        post = Post(self.path, meta, text.strip())
+        post.resources = [Resource(i, post) for i in Resource.RE.findall(text)]
+        return post
+
+    def read(self, path):
+        try:
+            self.path = path
+            with open(path, encoding='utf8') as f:
+                raw = f.read().strip()
+            return self.process(raw)
+        except Exception as e:
+            raise BlogError('Reading in "{0}"\n{1}'.format(self.path, e))
