@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
+import re
 
 from markdown import markdown
 
 from isudo import conf
-from isudo.utils import urljoin, filejoin
+from isudo.utils import urljoin, filejoin, BlogError
 
 
 class Meta:
@@ -53,12 +54,18 @@ class Post:
         post = post.replace('[clear]', '<div class="fixed"></div>')
         return self._render(post)
 
-    def render_short(self):
+    def render_short(self, images=True):
+        """
+        If `images=False` - `![]()` will be removed
+        If not tag more - BlogError will be raised
+        """
         text = self.post.replace('[clear]', '')
+        if not images:
+            text = re.sub('!\[\w+\]\(~[\w\./-]+\)', '', text)
         index = text.find('[more]')
         if index > 0:
             return self._render(text[0:index])
-        return self.render()
+        raise BlogError('Need tag [more] in post "{0}"'.format(self.path))
 
     def _render(self, text):
         for res in self.resources:

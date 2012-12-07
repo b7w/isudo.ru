@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>{{ title|escape }}</title>
+        <link>{{ site }}</link>
+        <atom:link href="{{ site }}{{ url('feed') }}" rel="self" type="application/rss+xml"/>
+        <description>{{ description|escape }}</description>
+        <lastBuildDate>{{ today.strftime("%a, %d %b %Y %H:%M:%S %z +0000") }}</lastBuildDate>
+
+        {% for post in posts %}
+            <item>
+                <title>{{ post.title|escape }}</title>
+                <link>{{ site }}{{ post.url }}</link>
+                <pubDate>{{ post.meta.time.strftime("%a, %d %b %Y %H:%M:%S +0000") }}</pubDate>
+                {% for category in post.meta.categories %}
+                    <category><![CDATA[{{ category }}]]></category>
+                {% endfor %}
+                <guid>{{ site }}{{ post.url }}</guid>
+                <description><![CDATA[{{ post.render_short(images=False) }}]]></description>
+            </item>
+        {% endfor %}
+    </channel>
+</rss>

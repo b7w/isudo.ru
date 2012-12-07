@@ -149,3 +149,16 @@ class CategoriesWriter(BaseWriter):
                 message='Category "{0}"'.format(tag),
                 posts=items,
             )
+
+
+class FeedWriter(BaseWriter):
+    name = 'Feed writer'
+
+    def write(self, posts):
+        posts = filter(lambda x: x.meta.type == 'post', posts)
+        posts = sorted(posts, key=lambda x: x.meta.time, reverse=True)
+
+        self.render('feed/index.html', 'feed.xml',
+            today=datetime.now(),
+            posts=posts[:conf.POST_PER_PAGE],
+        )
