@@ -10,6 +10,7 @@ WRITERS = getattr(conf, 'WRITERS',
         'isudo.writer.TagsPageWriter',
         'isudo.writer.TagsWriter',
         'isudo.writer.CategoriesWriter',
+        'isudo.writer.FeedWriter',
     ]
 )
 

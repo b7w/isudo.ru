@@ -5,7 +5,7 @@ from time import time
 
 import baker
 
-import conf
+from isudo import conf
 from isudo.main import StaticBlog
 from isudo.utils import BlogError
 

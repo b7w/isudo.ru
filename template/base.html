@@ -3,13 +3,13 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="description" content="Personal blog"/>
-    <meta name="keywords" content="Ubuntu,HomeServer,torrent,programming,python,HowTo"/>
+    <meta name="description" content="{{ description }}"/>
+    <meta name="keywords" content="{{ keywords }}"/>
 
     <title>{% block title %}{{ title }}{% endblock title %}</title>
 
     <link href="{{ url('static/images/favicon.ico', last=False) }}" rel="shortcut icon" type="image/x-icon"/>
-    <link rel="alternate" type="application/rss+xml" title="RSS постов" href="{{ url('feed') }}"/>
+    <link rel="alternate" type="application/rss+xml" href="{{ url('feed') }}"/>
     {% if google_plus %}
         <link rel="author" href="https://plus.google.com/{{ google_plus }}"/>
     {% endif %}
