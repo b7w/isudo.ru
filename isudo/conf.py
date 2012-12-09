@@ -16,6 +16,16 @@ WRITERS = getattr(conf, 'WRITERS',
     ]
 )
 
+BLOG_URL = getattr(conf, 'BLOG_URL')
+
+BLOG_TITLE = getattr(conf, 'BLOG_TITLE', 'BLOG TITLE')
+
+BLOG_DESCRIPTION = getattr(conf, 'BLOG_DESCRIPTION', '')
+
+BLOG_KEYWORDS = getattr(conf, 'BLOG_KEYWORDS', '')
+
+GOOGLE_PLUS = getattr(conf, 'GOOGLE_PLUS', None)
+
 # Path where html template exists
 TEMPLATE_PATH = getattr(conf, 'TEMPLATE_PATH', 'template')
 
@@ -27,7 +37,11 @@ DOMAIN_SUB_FOLDER = getattr(conf, 'DOMAIN_SUB_FOLDER', '')
 
 TEMPLATE_KWARGS = getattr(conf, 'TEMPLATE_KWARGS',
     {
-        'title': 'Some new Blog',
+        'BLOG_URL': BLOG_URL,
+        'BLOG_TITLE': BLOG_TITLE,
+        'BLOG_DESCRIPTION': BLOG_DESCRIPTION,
+        'BLOG_KEYWORDS': BLOG_KEYWORDS,
+        'GOOGLE_PLUS': GOOGLE_PLUS,
     }
 )
 

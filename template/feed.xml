@@ -2,21 +2,21 @@
 <rss version="2.0"
      xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>{{ title|escape }}</title>
-        <link>{{ site }}</link>
-        <atom:link href="{{ site }}{{ url('feed') }}" rel="self" type="application/rss+xml"/>
-        <description>{{ description|escape }}</description>
+        <title>{{ BLOG_TITLE|escape }}</title>
+        <link>{{ BLOG_URL }}</link>
+        <atom:link href="{{ BLOG_URL }}{{ url('feed') }}" rel="self" type="application/rss+xml"/>
+        <description>{{ BLOG_DESCRIPTION|escape }}</description>
         <lastBuildDate>{{ today.strftime("%a, %d %b %Y %H:%M:%S %z") }}</lastBuildDate>
 
         {% for post in posts %}
             <item>
                 <title>{{ post.title|escape }}</title>
-                <link>{{ site }}{{ post.url }}</link>
+                <link>{{ BLOG_URL }}{{ post.url }}</link>
                 <pubDate>{{ post.meta.time.strftime("%a, %d %b %Y %H:%M:%S %z") }}</pubDate>
                 {% for category in post.meta.categories %}
                     <category><![CDATA[{{ category }}]]></category>
                 {% endfor %}
-                <guid>{{ site }}{{ post.url }}</guid>
+                <guid>{{ BLOG_URL }}{{ post.url }}</guid>
                 <description><![CDATA[{{ post.render_short(images=False) }}]]></description>
             </item>
         {% endfor %}
