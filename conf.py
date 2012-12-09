@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+TIME_ZONE = 'Europe/Moscow'
+
 TEMPLATE_KWARGS = {
     'title': 'Black&White’s Blog',
     'description': 'Personal blog',

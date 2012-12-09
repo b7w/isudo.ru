@@ -36,7 +36,7 @@ class BaseWriter:
 
         :type posts: list of isudo.post.Post
         """
-        self.default['today'] = datetime.now()
+        self.default['today'] = datetime.now(tz=conf.TIME_ZONE)
         self.default['categories'] = sorted(set(chain(*list(i.meta.categories for i in posts))))
         # need to call in template with font_max, font_min
         tags = chain(*list(i.meta.tags for i in posts))
@@ -158,7 +158,8 @@ class FeedWriter(BaseWriter):
         posts = filter(lambda x: x.meta.type == 'post', posts)
         posts = sorted(posts, key=lambda x: x.meta.time, reverse=True)
 
+
         self.render('feed/index.html', 'feed.xml',
-            today=datetime.now(),
+            today=datetime.now(tz=conf.TIME_ZONE),
             posts=posts[:conf.POST_PER_PAGE],
         )
