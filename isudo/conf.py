@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import conf
+from pytz import timezone
+
 
 # Classes that generate something
 WRITERS = getattr(conf, 'WRITERS',
@@ -16,6 +18,9 @@ WRITERS = getattr(conf, 'WRITERS',
 
 # Path where html template exists
 TEMPLATE_PATH = getattr(conf, 'TEMPLATE_PATH', 'template')
+
+# Return TzInfo object, default 'UTC'
+TIME_ZONE = timezone(getattr(conf, 'TIME_ZONE', 'UTC'))
 
 # If you want something like http://isudo.ru/blog/
 DOMAIN_SUB_FOLDER = getattr(conf, 'DOMAIN_SUB_FOLDER', '')

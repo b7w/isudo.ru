@@ -75,7 +75,7 @@ class StaticBlog:
 
         :type url: str
         """
-        time = datetime.now()
+        time = datetime.now(tz=conf.TIME_ZONE)
         folder = conf.POST_PATH_STYLE.format(date=time)
         fname = '{date.year}-{date.month}-{date.day}-{name}.md'.format(date=time, name=url)
         path = filejoin(conf.POST_PATH, folder, fname)

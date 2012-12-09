@@ -15,7 +15,7 @@ class Meta:
         self.tags = []
         self.categories = []
         self.type = 'post'
-        self.time = datetime.now()
+        self.time = datetime.now(tz=conf.TIME_ZONE)
 
 
     @classmethod
@@ -32,6 +32,7 @@ class Meta:
         m.type = value.get('type', m.type)
         m.time = value['time']
         assert isinstance(m.time, datetime)
+        m.time = m.time.replace(tzinfo=conf.TIME_ZONE)
         return m
 
     def __repr__(self):
