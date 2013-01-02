@@ -13,7 +13,8 @@ from isudo.utils import filejoin, TagCloud, Paginator, dash, url
 class BaseWriter:
     name = 'BaseWriter, override'
 
-    def __init__(self):
+    def __init__(self, draft=False):
+        self.draft = draft
         self._jinja = Environment(loader=FileSystemLoader(conf.TEMPLATE_PATH), trim_blocks=True)
         self._jinja.filters['dash'] = dash
         self.default = conf.TEMPLATE_KWARGS
@@ -41,6 +42,9 @@ class BaseWriter:
         # need to call in template with font_max, font_min
         tags = chain(*list(i.meta.tags for i in posts))
         self.default['tags'] = TagCloud(tags)
+        # remove all drafts
+        if not self.draft:
+            posts = filter(lambda x: x.meta.draft is False, posts)
         self.write(posts)
 
     def write(self, posts):

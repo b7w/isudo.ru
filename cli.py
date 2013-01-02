@@ -11,14 +11,14 @@ from isudo.utils import BlogError
 
 
 @baker.command
-def build(pattern=None):
+def build(pattern=None, draft=False):
     """
     Build static site
     """
     blog = StaticBlog()
     blog.load(pattern=pattern)
     blog.copy_static()
-    blog.build()
+    blog.build(draft=draft)
 
 
 @baker.command
