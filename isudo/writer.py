@@ -71,6 +71,13 @@ class IndexWriter(BaseWriter):
             )
 
 
+class ErrorWriter(BaseWriter):
+    name = 'Error writer'
+
+    def write(self, posts):
+        self.render('error.html', 'error.html')
+
+
 class ResourcesWriter(BaseWriter):
     name = 'Resources writer'
 
@@ -157,7 +164,6 @@ class FeedWriter(BaseWriter):
     def write(self, posts):
         posts = filter(lambda x: x.meta.type == 'post', posts)
         posts = sorted(posts, key=lambda x: x.meta.time, reverse=True)
-
 
         self.render('feed/index.html', 'feed.xml',
             today=datetime.now(tz=conf.TIME_ZONE),

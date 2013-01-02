@@ -7,6 +7,7 @@ from pytz import timezone
 WRITERS = getattr(conf, 'WRITERS',
     [
         'isudo.writer.IndexWriter',
+        'isudo.writer.ErrorWriter',
         'isudo.writer.ResourcesWriter',
         'isudo.writer.PostWriter',
         'isudo.writer.TagsPageWriter',
