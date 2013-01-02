@@ -11,6 +11,7 @@ from isudo.utils import urljoin, filejoin, BlogError
 class Meta:
     def __init__(self):
         self.title = None
+        self.draft = False
         self.url = None
         self.tags = []
         self.categories = []
@@ -26,6 +27,7 @@ class Meta:
         """
         m = Meta()
         m.title = value['title']
+        m.draft = value.get('draft', m.draft)
         m.url = value['url']
         m.tags = value.get('tags', [])
         m.categories = value.get('categories', [])
