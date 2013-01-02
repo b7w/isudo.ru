@@ -47,7 +47,7 @@ class BaseWriter:
         self.default['tags'] = TagCloud(tags)
         # remove all drafts
         if not self.draft:
-            posts = filter(lambda x: x.meta.draft is False, posts)
+            posts = list(filter(lambda x: x.meta.draft is False, posts))
         self.write(posts)
 
     def write(self, posts):
@@ -123,22 +123,6 @@ class TagsPageWriter(BaseWriter):
 
 class TagsWriter(BaseWriter):
     name = 'Tags writer'
-
-    def _posts_per_tag(self, posts):
-        """
-        Get posts and return map with tag -> list of posts
-
-        :type posts: list of isudo.post.Post
-        :rtype: dict
-        """
-        tags = {}
-        for post in posts:
-            for tag in post.meta.tags:
-                if tag in tags:
-                    tags[tag].append(post)
-                else:
-                    tags[tag] = [post]
-        return tags
 
     def write(self, posts):
         tags = set(chain(*map(lambda post: post.meta.tags, posts)))
