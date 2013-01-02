@@ -89,7 +89,8 @@ class StaticBlog:
             f.write('# categories: []\n')
             f.write('# tags: []\n')
             f.write('# time: {0}\n'.format(time))
-            f.write('\nicon{ logo.png }\nHello world\n')
+            f.write('\n![left](~logo.png)\nHello world\n')
+            f.write('\n[more]\n\nend')
 
     def clear(self):
         rmtree(conf.DEPLOY_PATH, ignore_errors=True)

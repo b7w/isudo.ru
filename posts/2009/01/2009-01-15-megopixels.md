@@ -2,7 +2,7 @@
 # url: megopixels
 # type: post
 # categories: [Мир Фото]
-# tags: [ivel]
+# tags: [Evil]
 # time: 2009-01-15 17:42:03
 
 
