@@ -64,15 +64,14 @@ class IndexWriter(BaseWriter):
 
     def write(self, posts):
         posts = filter(lambda x: x.meta.type == 'post', posts)
-        paging = Paginator(posts, conf.POST_PER_PAGE)
+        pages = Paginator(posts, conf.POST_PER_PAGE).pages()
 
-        first = paging.pages()[0]
-        tail = paging.pages()[1:]
+        first = next(pages)
         self.render('index.html', 'list.html',
             posts=first.entries,
             page=first
         )
-        for page in tail:
+        for page in pages:
             self.render('page/{0}/index.html'.format(page.current), 'list.html',
                 posts=page.entries,
                 page=page,
