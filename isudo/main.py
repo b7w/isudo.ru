@@ -79,7 +79,10 @@ class StaticBlog:
         folder = conf.POST_PATH_STYLE.format(date=time)
         fname = '{date.year}-{date.month}-{date.day}-{name}.md'.format(date=time, name=url)
         path = filejoin(conf.POST_PATH, folder, fname)
-        os.makedirs(filejoin(conf.POST_PATH, folder), exist_ok=True)
+        try:
+            os.makedirs(filejoin(conf.POST_PATH, folder))
+        except OSError:
+            pass
 
         print('# creating new post..')
         print('# file: {0} '.format(path))
