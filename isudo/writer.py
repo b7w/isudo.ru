@@ -29,7 +29,10 @@ class BaseWriter:
             f.write(html)
 
     def mkdir(self, url, *args):
-        os.makedirs(filejoin(conf.DEPLOY_PATH, url, *args), exist_ok=True)
+        try:
+            os.makedirs(filejoin(conf.DEPLOY_PATH, url, *args))
+        except OSError:
+            pass
 
     def build(self, posts):
         """
@@ -63,7 +66,8 @@ class IndexWriter(BaseWriter):
         posts = filter(lambda x: x.meta.type == 'post', posts)
         paging = Paginator(posts, conf.POST_PER_PAGE)
 
-        first, *tail = paging.pages()
+        first = paging.pages()[0]
+        tail = paging.pages()[1:]
         self.render('index.html', 'list.html',
             posts=first.entries,
             page=first

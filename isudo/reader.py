@@ -56,7 +56,7 @@ class Reader:
             raise BlogError('Reading meta in "{0}"\n{1}'.format(self.path, e))
 
     def process(self, raw):
-        meta, text = raw.split('\n\n', maxsplit=1)
+        meta, text = raw.split('\n\n', 1)
         meta = self.read_meta(meta)
         if not meta:
             raise BlogError('Post "{0}" meta need at least [title, url, time]'.format(self.path))
