@@ -85,6 +85,15 @@ class ErrorWriter(BaseWriter):
         self.render('error.html', 'error.html')
 
 
+class RobotsTxtWriter(BaseWriter):
+    name = 'Robots.txt writer'
+
+    def write(self, posts):
+        path = filejoin(conf.DEPLOY_PATH, 'robots.txt')
+        with open(path, mode='w', encoding='utf8') as f:
+            f.write(conf.ROBOTS_TXT)
+
+
 class ResourcesWriter(BaseWriter):
     name = 'Resources writer'
 
