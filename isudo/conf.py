@@ -38,6 +38,9 @@ EXTRA_HEADER = getattr(conf, 'EXTRA_HEADER', '')
 # can be use to add some google metric
 EXTRA_HTML = getattr(conf, 'EXTRA_HTML', '')
 
+# Add snow to site
+SNOW_STORM = getattr(conf, 'SNOW_STORM', False)
+
 # Path where html template exists
 TEMPLATE_PATH = getattr(conf, 'TEMPLATE_PATH', 'template')
 
@@ -57,6 +60,7 @@ TEMPLATE_KWARGS = getattr(conf, 'TEMPLATE_KWARGS',
         'GOOGLE_PLUS': GOOGLE_PLUS,
         'EXTRA_HEADER': EXTRA_HEADER,
         'EXTRA_HTML': EXTRA_HTML,
+        'SNOW_STORM': SNOW_STORM,
     }
 )
 
@@ -82,7 +86,7 @@ TAG_CLOUD_FONT_COLOR = getattr(conf, 'TAG_CLOUD_FONT_COLOR',
 
 # Content for robots.txt file.
 # Default ony feed disallowed.
-ROBOTS_TXT = getattr(conf, 'POST_PER_PAGE', """
+ROBOTS_TXT = getattr(conf, 'ROBOTS_TXT', """
 User-agent: *
 Disallow: /feed/
 """).strip()
