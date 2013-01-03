@@ -8,6 +8,7 @@ WRITERS = getattr(conf, 'WRITERS',
     [
         'isudo.writer.IndexWriter',
         'isudo.writer.ErrorWriter',
+        'isudo.writer.RobotsTxtWriter',
         'isudo.writer.ResourcesWriter',
         'isudo.writer.PostWriter',
         'isudo.writer.TagsPageWriter',
@@ -30,6 +31,9 @@ BLOG_KEYWORDS = getattr(conf, 'BLOG_KEYWORDS', '')
 # User google plus id - long number in url
 GOOGLE_PLUS = getattr(conf, 'GOOGLE_PLUS', None)
 
+# Some extra header, for example meta yandex verification
+EXTRA_HEADER = getattr(conf, 'EXTRA_HEADER', '')
+
 # Some string that placed before close body tag
 # can be use to add some google metric
 EXTRA_HTML = getattr(conf, 'EXTRA_HTML', '')
@@ -51,6 +55,7 @@ TEMPLATE_KWARGS = getattr(conf, 'TEMPLATE_KWARGS',
         'BLOG_DESCRIPTION': BLOG_DESCRIPTION,
         'BLOG_KEYWORDS': BLOG_KEYWORDS,
         'GOOGLE_PLUS': GOOGLE_PLUS,
+        'EXTRA_HEADER': EXTRA_HEADER,
         'EXTRA_HTML': EXTRA_HTML,
     }
 )
@@ -74,3 +79,10 @@ POST_PER_PAGE = getattr(conf, 'POST_PER_PAGE', 8)
 TAG_CLOUD_FONT_COLOR = getattr(conf, 'TAG_CLOUD_FONT_COLOR',
     ((168, 168, 196), (102, 102, 204))
 )
+
+# Content for robots.txt file.
+# Default ony feed disallowed.
+ROBOTS_TXT = getattr(conf, 'POST_PER_PAGE', """
+User-agent: *
+Disallow: /feed/
+""").strip()
