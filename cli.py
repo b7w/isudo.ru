@@ -49,7 +49,7 @@ def hg(arg):
     """
     Some tools to work with mercurial.
 
-    hg up - check, update, full rebuild.
+    hg up - check, update, build.
     """
     blog = StaticBlog()
     if arg == 'up' or arg == 'update':
@@ -57,7 +57,6 @@ def hg(arg):
         if check == 0:
             print('# Found changes, loading')
             os.system('hg pull -u --quiet')
-            blog.clear()
             blog.load()
             blog.copy_static()
             blog.build()

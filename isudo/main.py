@@ -53,21 +53,15 @@ class StaticBlog:
             print('# {0}'.format(writer.name))
             writer.build(self.posts)
 
-    def copy_static(self, override=False):
+    def copy_static(self):
         """
-        Copy static directory from template to deploy folder.
-        If `override` deploy will be removed first!
+        Make link to static directory
         """
-        template = filejoin(conf.TEMPLATE_PATH, 'static')
+        template = os.path.abspath(filejoin(conf.TEMPLATE_PATH, 'static'))
         deploy = filejoin(conf.DEPLOY_PATH, 'static')
-        if not os.path.exists(conf.DEPLOY_PATH):
-            os.makedirs(conf.DEPLOY_PATH)
-        if os.path.exists(deploy) and override:
-            rmtree(deploy)
-        if not os.path.exists(deploy):
+        if not os.path.lexists(deploy):
             print('# Deploy static')
-            copytree(template, deploy)
-
+            os.symlink(template, deploy, target_is_directory=True)
 
     def create_post(self, url):
         """

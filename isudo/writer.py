@@ -98,16 +98,19 @@ class ResourcesWriter(BaseWriter):
     name = 'Resources writer'
 
     def write(self, posts):
+        """
+        Make links to resources
+        """
         for post in posts:
             if post.resources:
                 folder = os.path.dirname(post.path)
                 for res in post.resources:
-                    r = filejoin(folder, res.body)
+                    r = os.path.abspath(filejoin(folder, res.body))
                     if os.path.exists(r):
                         self.mkdir(post.furl, os.path.dirname(res.body))
                         s = filejoin(conf.DEPLOY_PATH, post.furl, res.body)
-                        if not os.path.exists(s):
-                            copyfile(r, s)
+                        if not os.path.lexists(s):
+                            os.symlink(r, s)
                     else:
                         print('#! No resource found: {0}'.format(r))
 
