@@ -1,20 +1,34 @@
 # About
 
-It is static blog generator. It is like [pelican](https://github.com/getpelican/pelican) or [liquidluck](https://github.com/lepture/liquidluck). But I moved from my wp blog and need more back compatibility, so i wrote this. Very simple and minimalist. With tune [inove](http://wordpress.org/extend/themes/inove) template, thanks [mg12](http://www.neoease.com/).
+It is static blog generator. Like [pelican](https://github.com/getpelican/pelican) or [liquidluck](https://github.com/lepture/liquidluck). But I moved from my WP blog and need more back compatibility, so i wrote this. Very simple and minimalist. With tune [inove](http://wordpress.org/extend/themes/inove) template, thanks [mg12](http://www.neoease.com/).
+
+# Why
+
+    WP blog is so slow, so complex and need too much attention. I thing a lot what to do, where to move. And once I decided to write simple static engine for myself.
 
 # Requirements
 
-	* python 3
-	* jinja2
-	* markdown
-	* pygments
-	* pyyaml
-	* baker
+    * python3
+    * jinja2
+    * markdown
+    * pygments
+    * pyyaml
+    * baker
+    * pytz
 
 # Features
 
-	* Posts
+	* Posts in markdown
 	* Categories
-	* Tags
-	* Usage relative resource from post dir
+	* Tags cloud
+	* Url from post meta data
+	* Copy relative resources mentioned in post
+	* Feed for post
+	* No comments
+	* Nice js snow :-)
+	* Code syntax highlighting
+
+# License
+
+    Open source, BSD license.
 
