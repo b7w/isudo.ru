@@ -44,7 +44,7 @@ class StaticBlog:
                         self.posts.append(self.reader.read(path))
         self.posts.sort(key=lambda x: x.meta.time, reverse=True)
 
-    def build(self, draft):
+    def build(self, draft=False):
         """
         For all Writes classes run build, and generate blog in deploy folder
         """

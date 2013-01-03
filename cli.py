@@ -30,7 +30,8 @@ def server(port=8000):
         os.mkdir(conf.DEPLOY_PATH)
     os.chdir(conf.DEPLOY_PATH)
 
-    httpd = HTTPServer(('127.0.0.1', port), SimpleHTTPRequestHandler)
+    httpd = HTTPServer(('0.0.0.0', port), SimpleHTTPRequestHandler)
+    print('# server at http://127.0.0.1:{0}'.format(port))
     httpd.serve_forever()
 
 
@@ -41,6 +42,27 @@ def clear():
     """
     blog = StaticBlog()
     blog.clear()
+
+
+@baker.command
+def hg(arg):
+    """
+    Some tools to work with mercurial.
+
+    hg up - check, update, full rebuild.
+    """
+    blog = StaticBlog()
+    if arg == 'up' or arg == 'update':
+        check = os.system('hg incoming --quiet')
+        if check == 0:
+            print('# Found changes, loading')
+            os.system('hg pull -u --quiet')
+            blog.clear()
+            blog.load()
+            blog.copy_static()
+            blog.build()
+        else:
+            print('# No changes')
 
 
 @baker.command
