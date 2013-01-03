@@ -59,9 +59,11 @@ class StaticBlog:
         """
         template = os.path.abspath(filejoin(conf.TEMPLATE_PATH, 'static'))
         deploy = filejoin(conf.DEPLOY_PATH, 'static')
+        if not os.path.exists(conf.DEPLOY_PATH):
+            os.makedirs(conf.DEPLOY_PATH)
         if not os.path.lexists(deploy):
             print('# Deploy static')
-            os.symlink(template, deploy, target_is_directory=True)
+            os.symlink(template, deploy)
 
     def create_post(self, url):
         """
