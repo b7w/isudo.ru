@@ -78,6 +78,10 @@
     </div>
 </div>
 
+{% if SNOW_STORM %}
+    <script type="text/javascript" src="{{ url('static/js/snowstorm-min.js', last=False) }}"></script>
+{% endif %}
+
 {{ EXTRA_HTML }}
 
 </body>
