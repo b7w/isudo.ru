@@ -1,7 +1,7 @@
 # title: Fabric автоматизация проектов
 # url: fabric-projects-automation
-# categories: [HowTo, Scripts, Ubuntu]
-# tags: [Commands, Fabric, HowTo, Python, Shell]
+# categories: [HowTo, Programming, Ubuntu]
+# tags: [Commands, Fabric, Python, Shell]
 # time: 2011-11-23 12:06:17
 
 

@@ -1,7 +1,7 @@
 # title: Конвертация Raw в Linux Ubuntu
 # url: raw-conversion-in-ubuntu
-# categories: [Ubuntu, Мир Фото]
-# tags: [Raw, Обзоры, Фото]
+# categories: [Ubuntu, Фото]
+# tags: [Raw]
 # time: 2009-01-21 17:48:39
 
 ![left](~canon-sensor.jpg)

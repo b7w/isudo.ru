@@ -1,7 +1,7 @@
 # title: Amazon kindle vs kindle
 # url: amazon-kindle-vs-kindle
 # categories: [Ubuntu, Обзоры]
-# tags: [Amazon, Kindle, Обзоры]
+# tags: [Amazon, Kindle]
 # time: 2012-01-05 20:46:39
 
 

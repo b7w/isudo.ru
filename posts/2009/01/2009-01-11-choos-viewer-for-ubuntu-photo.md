@@ -1,7 +1,7 @@
 # url: choos-viewer-for-ubuntu-photo
 # title: Выбираем Viewer для Ubuntu и фотографа
-# categories: [Ubuntu, Обзоры]
-# tags: [Viewer, Обзоры, Фото]
+# categories: [Ubuntu, Обзоры, Фото]
+# tags: [Viewer]
 # time: 2009-01-11 17:38:24
 
 

@@ -1,7 +1,7 @@
 # title: Android 3 на примере ASUS Pad TF101
 # url: android-os-asus-pad-tf101
 # categories: [Обзоры]
-# tags: [Android, iOS, iPad, Впечатления, Обзоры]
+# tags: [Android, iOS, iPad, Впечатления]
 # time: 2011-08-03 11:03:55
 
 

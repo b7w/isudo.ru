@@ -1,6 +1,6 @@
 # title: Еше один блог
 # url: hellow-world
-# categories: [Личное, Новости]
+# categories: [Личное, Обзоры]
 # tags: [Впечатления]
 # time: 2009-01-07 17:27:05
 

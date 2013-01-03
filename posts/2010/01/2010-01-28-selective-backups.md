@@ -1,6 +1,6 @@
 # title: Делаем выборочные BackUp Баз данных
 # url: selective-backups
-# categories: [Scripts]
+# categories: [Programming]
 # tags: [BackUp, MySql, PostgreSQL, Python, SQLite]
 # time: 2010-01-28 12:04:09
 

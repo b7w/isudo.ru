@@ -1,13 +1,7 @@
 # title: Пишем Админку на shell
 # url: write-admin-on-shell
-# categories:
-# - HowTo
-# - Scripts
-# - Ubuntu
-# tags:
-# - AdminGui
-# - HowTo
-# - Shell
+# categories: [Programming, HowTo, Ubuntu]
+# tags: [AdminGui, Shell]
 # time: 2009-06-25 20:10:50
 
 
