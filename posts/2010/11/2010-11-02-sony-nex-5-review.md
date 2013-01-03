@@ -1,7 +1,7 @@
 # title: Sony NEX-5 review
 # url: sony-nex-5-review
-# categories: [Мир Фото, Обзоры]
-# tags: [Впечатления, Обзоры, Фото]
+# categories: [Фото, Обзоры]
+# tags: [Впечатления]
 # time: 2010-11-02 21:12:20
 
 

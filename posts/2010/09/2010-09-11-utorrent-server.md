@@ -1,7 +1,7 @@
 # title: µTorrent Server
 # url: utorrent-server
-# categories: [Ubuntu, Новости]
-# tags: [torrent]
+# categories: [Ubuntu, Обзоры]
+# tags: [Torrent]
 # time: 2010-09-11 21:19:41
 
 

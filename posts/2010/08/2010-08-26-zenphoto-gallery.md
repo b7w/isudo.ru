@@ -1,7 +1,7 @@
 # title: ZenPhoto Gallery
 # url: zenphoto-gallery
-# categories: [Личное]
-# tags: [Впечатления, Фото]
+# categories: [Личное, Фото]
+# tags: [Впечатления]
 # time: 2010-08-26 00:13:35
 
 

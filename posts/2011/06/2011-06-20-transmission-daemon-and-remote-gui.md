@@ -1,7 +1,7 @@
 # title: Transmission daemon and remote GUI
 # url: transmission-daemon-and-remote-gui
 # categories: [HowTo, Ubuntu]
-# tags: [HowTo, torrent, Transmission]
+# tags: [Torrent, Transmission]
 # time: 2011-06-20 12:00:22
 
 

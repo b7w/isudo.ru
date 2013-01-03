@@ -1,7 +1,7 @@
 # title: Собираем rTorrent из исходников
 # url: rtorrent-compilation
 # categories: [HowTo, Ubuntu]
-# tags: [rTorrent, SVN, torrent]
+# tags: [rTorrent, SVN, Torrent]
 # time: 2009-10-24 12:02:14
 
 

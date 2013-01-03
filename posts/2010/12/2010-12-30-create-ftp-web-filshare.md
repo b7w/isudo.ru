@@ -1,7 +1,7 @@
 # title: Делаем FTP и Web FileShare
 # url: create-ftp-web-filshare
-# categories: [HowTo, Scripts, Ubuntu]
-# tags: [FileShare, FTP, HomeServer, HowTo]
+# categories: [HowTo, Programming, Ubuntu]
+# tags: [FileShare, FTP, HomeServer]
 # time: 2010-12-30 15:10:15
 
 

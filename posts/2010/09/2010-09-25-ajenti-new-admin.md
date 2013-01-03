@@ -1,6 +1,6 @@
 # title: Ajenti - Новое слово в администрировании
 # url: ajenti-new-admin
-# categories: [Ubuntu, Новости]
+# categories: [Ubuntu, Обзоры]
 # tags: [AdminGui, HomeServer]
 # time: 2010-09-25 13:48:08
 

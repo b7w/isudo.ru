@@ -1,7 +1,7 @@
 # title: SSH с ключами и тунелированием
 # url: ssh-with-key-and-tuneling
 # categories: [HowTo, Ubuntu]
-# tags: [HowTo, Keys, SSH, Tunneling]
+# tags: [Keys, SSH, Tunneling]
 # time: 2012-03-26 16:31:12
 
 

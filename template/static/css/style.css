@@ -373,6 +373,11 @@ code {
     margin-bottom: 10px;
 }
 
+.tabs-box {
+    line-height: 120%;
+    word-spacing: 4px;
+}
+
 /* BOX END */
 
 /* SIDEBAR START */

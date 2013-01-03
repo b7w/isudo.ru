@@ -1,6 +1,6 @@
 # title: Python vs Bash
 # url: python-vs-bash
-# categories: [Scripts, Ubuntu]
+# categories: [Programming, Ubuntu]
 # tags: [Python, Shell]
 # time: 2010-01-27 21:39:07
 

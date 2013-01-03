@@ -1,7 +1,7 @@
 # title: Настраиваем Ubuntu Server под HomeServer
 # url: ubuntu-server-for-homeserver
 # categories: [HowTo, Ubuntu]
-# tags: [HomeServer, HowTo, Обзоры]
+# tags: [HomeServer]
 # time: 2009-09-20 14:22:15
 
 ![left](~ubuntu-logo.jpg)

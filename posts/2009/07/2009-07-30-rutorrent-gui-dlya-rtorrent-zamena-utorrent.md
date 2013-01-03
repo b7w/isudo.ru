@@ -1,7 +1,7 @@
 # title: ruTorrent - Gui для rTorrent, замена uTorrent
 # url: rutorrent-gui-dlya-rtorrent-zamena-utorrent
 # categories: [HowTo, Ubuntu]
-# tags: [rTorrent, ruTorrent, torrent]
+# tags: [rTorrent, ruTorrent, Torrent]
 # time: 2009-07-30 18:14:16
 
 ![left](~ru-torrent.png)

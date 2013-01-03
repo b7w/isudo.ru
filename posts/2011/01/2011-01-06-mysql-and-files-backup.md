@@ -1,6 +1,6 @@
 # title: MySql and Files BackUp
 # url: mysql-and-files-backup
-# categories: [Scripts, Ubuntu] 
+# categories: [Programming, Ubuntu]
 # tags: [BackUp, MySql, Python, rdiff-backup]
 # time: 2011-01-06 21:18:21
 

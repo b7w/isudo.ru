@@ -1,7 +1,7 @@
 # title: Тест торрент клиентов, или тяжкий выбор качалки
 # url: test-torrent-clients-or-hard-choice
 # categories: [Ubuntu]
-# tags: [Deluge, rTorrent, torrent, Transmission]
+# tags: [Deluge, rTorrent, Torrent, Transmission]
 # time: 2011-06-16 15:44:36
 
 

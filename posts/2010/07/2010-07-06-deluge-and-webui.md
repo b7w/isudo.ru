@@ -1,7 +1,7 @@
 # title: Deluge and WebUI
 # url: deluge-and-webui
 # categories: [HowTo, Ubuntu]
-# tags: [Deluge, torrent]
+# tags: [Deluge, Torrent]
 # time: 2010-07-06 15:51:08
 
 

@@ -1,7 +1,7 @@
 # title: Настравиваем Ubuntu под HomeServer
 # url: make-ubuntu-for-homeserver
 # categories: [HowTo, Ubuntu]
-# tags: [HomeServer, HowTo, Обзоры]
+# tags: [HomeServer]
 # time: 2009-04-04 17:54:28
 
 

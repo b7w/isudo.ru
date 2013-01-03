@@ -1,7 +1,7 @@
 # title: Python IDE
 # url: python-ide
-# categories: [Ubuntu, Новости]
-# tags: [IDE, Python, Обзоры]
+# categories: [Ubuntu, Обзоры]
+# tags: [IDE, Python]
 # time: 2010-10-14 10:18:01
 
 

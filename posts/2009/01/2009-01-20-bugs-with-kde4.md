@@ -1,7 +1,7 @@
 # title: Приколы с KDE
 # url: bugs-with-kde4
 # categories: [Ubuntu]
-# tags: [Kde]
+# tags: [KDE]
 # time: 2009-01-20 17:47:39
 
 ![left](~about-kde.png)
