@@ -12,7 +12,7 @@
 
 Ну конечно вы наверное хотите узнать, а как ставить это чудо? Наверное промелькнет страшная мысль, а вдруг опять мучатся со всякими веб серверами, php и т.д? Нет, нет и еше раз нет. Все до глупости просто. Надо скачать с [сайта](http://www.utorrent.com/downloads/linux) архив, распоковать его командой `tar xvfz something.tar.gz`, запустить **utserver**, зайти по [http://localhost:8080/gui/](http://localhost:8080/gui/) вбить _admin_ и нажать enter. Дальше вся настройка проходит через веб интерфейс. Правдо клево? Единственный минус это то, что сервер запускает не как демон. Поэтому придеться повторить магию со screen. _п.с. со [слов](http://isudo.ru/2010/09/%c2%b5torrent-server/comment-page-1/#comment-112) Алексея, есть опция `-daemon`._
     
-    sudo wget http://isudo.ru/files/utserver.sh -O /etc/init.d/utorrent
+    sudo wget http://isudo.ru[~utserver.sh] -O /etc/init.d/utorrent
     sudo chmod +x /etc/init.d/utorrent
 
 Использование: `start`, `stop`, `restart`, `status` (по работе screen), запуск screen

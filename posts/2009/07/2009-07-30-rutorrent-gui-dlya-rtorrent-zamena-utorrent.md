@@ -116,7 +116,7 @@ ruTorrent это великолепный web интерфейс к rTorrent. С
 
 или мой вариант, он проще намного и не глючит у меня:
 
-    sudo wget http://isudo.ru/files/rTorrent.sh \
+    sudo wget http://isudo.ru[~rtorrent.sh] \
     -O /etc/init.d/rtorrent
 
 Использование: start, stop, restart, status (по работе screen), запуск screen `sudo nano /etc/init.d/rtorrent` Меняем в строке `user="user", "user"` на Ваше имя пользователя. Теперь собственно добавляем в автозапуск, и стартуем rtorrent:
@@ -135,7 +135,7 @@ ruTorrent это великолепный web интерфейс к rTorrent. С
 ### Конфиг rTorrent
 Можете скачать мой вариант и отредактировать под себя. А вообще есть хорошее описание всех параметров на русском [тут](http://ru.wikibooks.org/wiki/RTorrent)
 
-    wget http://isudo.ru/files/.rtorrent.rc -O .rtorrent.rc
+    wget http://isudo.ru[~rtorrent.rc] -O .rtorrent.rc
     nano .rtorrent.rc
 
 Настраиваем под свои нужды!!! Незабываем прописывать свои пути!!!
