@@ -42,27 +42,27 @@ class Meta:
 
 
 class Post:
-    def __init__(self, path, meta, post):
+    def __init__(self, path, meta, text):
         """
         :type meta: Meta
-        :type post: str
+        :type text: str
         """
         self.path = path
         self.meta = meta
-        self.post = post
+        self.text = text
         self.resources = []
 
     def render(self):
-        post = self.post.replace('[more]', '')
-        post = post.replace('[clear]', '<div class="fixed"></div>')
-        return self._render(post)
+        text = self.text.replace('[more]', '')
+        text = text.replace('[clear]', '<div class="fixed"></div>')
+        return self._render(text)
 
     def render_short(self, images=True):
         """
         If `images=False` - `![]()` will be removed
         If not tag more - BlogError will be raised
         """
-        text = self.post.replace('[clear]', '')
+        text = self.text.replace('[clear]', '')
         if not images:
             text = re.sub('!\[\w+\]\(~[\w\./-]+\)', '', text)
         index = text.find('[more]')
@@ -103,4 +103,4 @@ class Post:
         return self._url(filejoin)
 
     def __repr__(self):
-        return "Post{{{0},{1}}}".format(self.meta, self.post)
+        return "Post{{{0},{1}}}".format(self.meta, self.text)

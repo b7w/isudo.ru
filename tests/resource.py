@@ -10,8 +10,8 @@ class ResourceTestCase(TestCase):
         self.post.url = '/2013/01/'
 
     def test_find_RE(self):
-        self.post.post = 'Foo ![title](~resource.png) bar'
-        resources = Resource.RE.findall(self.post.post)
+        self.post.text = 'Foo ![title](~resource.png) bar'
+        resources = Resource.RE.findall(self.post.text)
         self.assertEqual(len(resources), 1)
 
         self.post.post = 'Foo [~resource.png] bar'
@@ -19,7 +19,7 @@ class ResourceTestCase(TestCase):
         self.assertEqual(len(resources), 1)
 
     def test_findall(self):
-        self.post.post = 'Foo ![title](~resource.png) bar [~resource2.png] foo [title2](~resource3.ln)'
+        self.post.text = 'Foo ![title](~resource.png) bar [~resource2.png] foo [title2](~resource3.ln)'
         resources = Resource.findall(self.post)
         self.assertEqual(len(resources), 3)
         macros = sorted(map(lambda x: x.macros, resources))

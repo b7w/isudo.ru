@@ -41,9 +41,9 @@ class Resource:
         :rtype: list of Resource
         """
         out = []
-        for res in Resource.RE.findall(post.post):
+        for res in Resource.RE.findall(post.text):
             out.append(Resource(res, post, type=cls.RE))
-        for res in Resource.RE2.findall(post.post):
+        for res in Resource.RE2.findall(post.text):
             out.append(Resource(res, post, type=cls.RE2))
         return out
 
