@@ -51,15 +51,13 @@ def hg(arg):
 
     hg up - check, update, build.
     """
-    blog = StaticBlog()
     if arg == 'up' or arg == 'update':
         check = os.system('hg incoming --quiet')
         if check == 0:
             print('# Found changes, loading')
             os.system('hg pull -u --quiet')
-            blog.load()
-            blog.copy_static()
-            blog.build()
+            # to run new code version
+            os.system('python3 cli.py build')
         else:
             print('# No changes')
 
