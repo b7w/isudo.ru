@@ -41,6 +41,10 @@ EXTRA_HTML = getattr(conf, 'EXTRA_HTML', '')
 # Add snow to site
 SNOW_STORM = getattr(conf, 'SNOW_STORM', False)
 
+# Link sidebar
+# list of (link, title, name)
+LINKS = getattr(conf, 'LINKS', [])
+
 # Path where html template exists
 TEMPLATE_PATH = getattr(conf, 'TEMPLATE_PATH', 'template')
 
@@ -61,6 +65,7 @@ TEMPLATE_KWARGS = getattr(conf, 'TEMPLATE_KWARGS',
         'EXTRA_HEADER': EXTRA_HEADER,
         'EXTRA_HTML': EXTRA_HTML,
         'SNOW_STORM': SNOW_STORM,
+        'LINKS': LINKS,
     }
 )
 
