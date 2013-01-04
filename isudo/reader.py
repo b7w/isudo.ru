@@ -13,31 +13,51 @@ class Resource:
     Some hack to replace relative resource links in `.md` to absolute,
     and copy resource.
 
-    `![](~image.png)` -> `![](/2012/10/post-name/image.png)`
+    `![foo](~image.png)` -> `![foo](/2012/10/post-name/image.png)`
+    `[~image.png]` -> `/2012/10/post-name/image.png`
 
-    `RE` field - find all resources
-    `render` - make new text
-    `replace` - replace old to new
+    `RE` field - find all links resources
+    `RE2` field - find all resources
     """
     RE = re.compile('\(~[\w\./-]+\)')
+    RE2 = re.compile('\[~[\w\./-]+\]')
 
-    def __init__(self, text, post):
+    def __init__(self, macros, post, type=RE):
         """
-        :type text: str
+        :type macros: str
         :type post: blog.post.Post
+        :type type: Resource.RE | Resource.RE2
         """
-        self.text = text
+        self.macros = macros
         self.post = post
-        self.body = text[2:-1].strip()
+        self.type = type
+        self.link = macros[2:-1].strip()
+
+    @classmethod
+    def findall(cls, post):
+        """
+        Return list of all resources in post.
+
+        :rtype: list of Resource
+        """
+        out = []
+        for res in Resource.RE.findall(post.post):
+            out.append(Resource(res, post, type=cls.RE))
+        for res in Resource.RE2.findall(post.post):
+            out.append(Resource(res, post, type=cls.RE2))
+        return out
 
     def render(self):
-        return '(%s)' % url(self.post.url, self.body, last=False)
+        link = url(self.post.url, self.link, last=False)
+        if self.type == self.RE:
+            return '({0})'.format(link)
+        return link
 
     def replace(self, text):
-        return text.replace(self.text, self.render())
+        return text.replace(self.macros, self.render())
 
     def __repr__(self):
-        return 'Resource{%s}' % self.body
+        return 'Resource{%s}' % self.link
 
 
 class Reader:
@@ -62,7 +82,7 @@ class Reader:
             raise BlogError('Post "{0}" meta need at least [title, url, time]'.format(self.path))
 
         post = Post(self.path, meta, text.strip())
-        post.resources = [Resource(i, post) for i in Resource.RE.findall(text)]
+        post.resources = Resource.findall(post)
         return post
 
     def read(self, path):
