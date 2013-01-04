@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
-import conf
 
+from isudo import conf
 from isudo.utils import urljoin, url
 
 class UtilsTestCase(unittest.TestCase):

@@ -105,10 +105,10 @@ class ResourcesWriter(BaseWriter):
             if post.resources:
                 folder = os.path.dirname(post.path)
                 for res in post.resources:
-                    r = os.path.abspath(filejoin(folder, res.body))
+                    r = os.path.abspath(filejoin(folder, res.link))
                     if os.path.exists(r):
-                        self.mkdir(post.furl, os.path.dirname(res.body))
-                        s = filejoin(conf.DEPLOY_PATH, post.furl, res.body)
+                        self.mkdir(post.furl, os.path.dirname(res.link))
+                        s = filejoin(conf.DEPLOY_PATH, post.furl, res.link)
                         if not os.path.lexists(s):
                             os.symlink(r, s)
                     else:
