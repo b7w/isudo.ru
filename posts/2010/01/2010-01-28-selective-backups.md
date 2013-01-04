@@ -51,4 +51,4 @@
  * python-psyco
 
 
-[А вот и сам файл](http://isudo.ru/files/Dump.zip)
+[А вот и сам файл](http://hg.isudo.ru/projects/pyBackup/archive/tip.zip)

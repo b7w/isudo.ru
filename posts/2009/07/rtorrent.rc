@@ -1,0 +1,72 @@
+#минимальное число пиров на торрент
+min_peers = 1
+
+#максимальное число пиров на торрент
+max_peers = 25
+
+# Same as above but for seeding completed torrents (-1 = same as downloading)
+#min_peers_seed = 10
+max_peers_seed=5
+
+#максимальная скорость загрузки
+download_rate=50
+
+#максимальная скорость отдачи. 0 - не ограничена
+upload_rate=20
+
+#каталог для сохранения закачек или откуда буду сидироваться торренты.
+directory = /media/HomeStorage/torrents/
+
+#каталог куда будет сохраняться состояние торрентов.
+#Здесь, в этом примере, они сохраняются в папку  session
+session =/home/bw/rtorrent/session
+
+#rtorrent каждые 5 секунд проверяет этот каталог на новые *.torrent файлы
+#и если они есть то ставит их на закачку
+schedule = watch_directory,5,5,load_start=/media/HomeStorage/Downloads/TorrentFiles/*.torrent
+
+schedule = throttle_0,01:00:00,24:00:00,max_peers_seed=20
+#С часа ночи скорость закачки отдачи идет без ограничения
+schedule = throttle_1,01:00:00,24:00:00,upload_rate=0
+schedule = throttle_2,01:00:00,24:00:00,download_rate=0
+#С 10 утра скорость ограничевается
+schedule = throttle_3,10:00:00,24:00:00,upload_rate=20
+schedule = throttle_4,10:00:00,24:00:00,download_rate=50
+
+#номер порта (или нескольких портов) который открывает клиент для обмена данными
+port_range = 40890-40890
+
+scgi_port = 127.0.0.1:5000
+
+#случайный выбор порта для обмена данными. В данном случае он отключён
+port_random = no
+
+#проверять хэш торрента после закачки
+check_hash = yes
+
+###сохранять сессию
+session_save = yes
+
+#принимать зашифрованные входящие соединения, устанавливать незашифрованные исходящие соединения, 
+#если возвращает ошибку, повторять с шифрованием, предпочитать открытый текст после установления
+#зашифрованного соединения
+encryption = allow_incoming,enable_retry,prefer_plaintext 
+
+#использовать udp
+use_udp_trackers = yes
+
+# Max number of files to keep open simultaniously.
+#max_open_files = 128
+
+safe_sync=yes
+
+encoding_list=UTF-8
+
+# Отмена фрагментации скачанных торрентов
+system.file_allocate.set = yes
+
+# Избежание ошибки "File chunk write error: Cannot allocate memory"
+send_buffer_size = 4M
+receive_buffer_size = 4M
+
+#max_memory_usage = 512M

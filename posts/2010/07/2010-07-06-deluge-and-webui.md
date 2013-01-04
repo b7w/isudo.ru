@@ -32,7 +32,7 @@
 
 Загружаем скрипт запуска
 
-    sudo wget http://isudo.ru/files/deluge-daemon -O /etc/init.d/deluge-daemon
+    sudo wget http://isudo.ru[~deluge-daemon.sh] -O /etc/init.d/deluge-daemon
     sudo chmod 644 /etc/init.d/deluge-daemon
     sudo chmod +x /etc/init.d/deluge-daemon
     sudo update-rc.d deluge-daemon defaults
