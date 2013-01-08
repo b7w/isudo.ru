@@ -2,7 +2,6 @@
 import os
 from datetime import datetime
 from itertools import chain
-from shutil import copyfile
 
 from jinja2 import Environment, FileSystemLoader
 
@@ -119,7 +118,6 @@ class PostWriter(BaseWriter):
     name = 'Post writer'
 
     def write(self, posts):
-        posts = filter(lambda x: x.meta.type == 'post', posts)
         for post in posts:
             self.render(filejoin(post.furl, 'index.html'), 'post.html',
                 post=post,
