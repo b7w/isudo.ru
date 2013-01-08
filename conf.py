@@ -21,6 +21,7 @@ EXTRA_HTML = """<!--Yandex.Metrika counter--><script type="text/javascript">(fun
 SNOW_STORM = True
 
 LINKS = [
+    ('/about/', 'Информация о ресурсе и авторе', 'О сайте'),
     ('https://plus.google.com/114553589811306443494', 'Follow Me', 'Google plus'),
     ('http://lintest.ru/wiki/MyRuLib', 'Создатель отличной программы MyRuLib для организации домашней библиотеки', 'LinTest'),
     ('http://sudouser.com/', 'Отличный линукс блог, Можно найти все что захочешь', 'Stepanoff Home Network'),
