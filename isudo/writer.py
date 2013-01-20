@@ -39,14 +39,15 @@ class BaseWriter:
 
         :type posts: list of isudo.post.Post
         """
+        # remove all drafts
+        if not self.draft:
+            posts = list(filter(lambda x: x.meta.draft is False, posts))
         self.default['today'] = datetime.now(tz=conf.TIME_ZONE)
         self.default['categories'] = sorted(set(chain(*list(i.meta.categories for i in posts))))
         # need to call in template with font_max, font_min
         tags = chain(*list(i.meta.tags for i in posts))
         self.default['tags'] = TagCloud(tags)
-        # remove all drafts
-        if not self.draft:
-            posts = list(filter(lambda x: x.meta.draft is False, posts))
+
         self.write(posts)
 
     def write(self, posts):

@@ -201,10 +201,14 @@ class Paginator:
         self.size = len(self.entries)
 
     def pages(self):
+        if self.size < self.per_page:
+            yield Page(self, self.entries, 1)
         for i in range(0, self.size, self.per_page):
             current = round(i / self.per_page) + 1
             entries = self.entries[i:i + self.per_page]
             yield Page(self, entries, current)
 
     def count(self):
+        if self.size < self.per_page:
+            return 1
         return ceil(self.size / self.per_page)
