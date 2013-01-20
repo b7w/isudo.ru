@@ -34,7 +34,7 @@ h3 {
 }
 
 h4 {
-    font-size: 120%;
+    font-size: 130%;
 }
 
 h5 {
@@ -218,6 +218,9 @@ code {
     margin-top: 10px;
     border-bottom: 1px solid #CCC;
     padding: 0 5px 3px;
+}
+
+.post-desc h2, .post-short h2 {
     font-size: 16px;
 }
 
@@ -374,7 +377,7 @@ code {
 }
 
 .tabs-box {
-    line-height: 120%;
+    line-height: 140%;
     word-spacing: 4px;
 }
 
