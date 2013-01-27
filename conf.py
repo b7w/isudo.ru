@@ -6,7 +6,7 @@ BLOG_URL = 'http://isudo.ru'
 
 BLOG_TITLE = 'Black&White’s Blog'
 
-BLOG_DESCRIPTION = 'Personal blog'
+BLOG_DESCRIPTION = 'Personal B7W blog'
 
 BLOG_KEYWORDS = 'ubuntu,home server,torrent,programming,python,howto'
 
