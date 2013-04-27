@@ -23,8 +23,8 @@ SNOW_STORM = True
 LINKS = [
     ('/about/', 'Информация о ресурсе и авторе', 'О сайте'),
     ('https://plus.google.com/114553589811306443494', 'Follow Me', 'Google plus'),
+    ('http://asvetlov.blogspot.ru/', 'Отличный блог посвященный языку программирования python', 'Блог Андрея Светлова'),
     ('http://lintest.ru/wiki/MyRuLib', 'Создатель отличной программы MyRuLib для организации домашней библиотеки', 'LinTest'),
-    ('http://sudouser.com/', 'Отличный линукс блог, Можно найти все что захочешь', 'Stepanoff Home Network'),
     ('https://help.ubuntu.com/', 'Документация, краткая и полезная. High recommended!', 'Ubuntu Help'),
     ('http://www.radio-t.com/', 'Очень занимательный IT подкаст', 'Радио-Т'),
 ]
