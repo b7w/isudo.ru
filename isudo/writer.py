@@ -19,11 +19,14 @@ class BaseWriter:
         self.default = conf.TEMPLATE_KWARGS
         self.default['url'] = url
 
+    def open(self, path, mode='w'):
+        self.mkdir(os.path.dirname(path))
+        return open(filejoin(conf.DEPLOY_PATH, path), mode=mode, encoding='utf8')
+
     def render(self, path, template, **kwargs):
         default = self.default.copy()
         default.update(kwargs)
-        self.mkdir(os.path.dirname(path))
-        with open(filejoin(conf.DEPLOY_PATH, path), mode='w', encoding='utf8') as f:
+        with self.open(path) as f:
             html = self._jinja.get_template(template).render(**default)
             f.write(html)
 
@@ -83,6 +86,16 @@ class ErrorWriter(BaseWriter):
 
     def write(self, posts):
         self.render('error.html', 'error.html')
+
+
+class ExtraFilesWriter(BaseWriter):
+    name = 'Extra file writer'
+
+    def write(self, posts):
+        if conf.EXTRA_FILES:
+            for fname, content in conf.EXTRA_FILES:
+                with self.open(fname) as f:
+                    f.write(content)
 
 
 class RobotsTxtWriter(BaseWriter):
