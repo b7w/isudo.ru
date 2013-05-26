@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
-import conf
 from pytz import timezone
+
+import conf
+
 
 
 # Classes that generate something
@@ -8,6 +10,7 @@ WRITERS = getattr(conf, 'WRITERS',
     [
         'isudo.writer.IndexWriter',
         'isudo.writer.ErrorWriter',
+        'isudo.writer.ExtraFilesWriter',
         'isudo.writer.RobotsTxtWriter',
         'isudo.writer.ResourcesWriter',
         'isudo.writer.PostWriter',
@@ -37,6 +40,10 @@ EXTRA_HEADER = getattr(conf, 'EXTRA_HEADER', '')
 # Some string that placed before close body tag
 # can be use to add some google metric
 EXTRA_HTML = getattr(conf, 'EXTRA_HTML', '')
+
+# Tuple of file name and its content
+# Can be used to create keys for some system like yandex metric
+EXTRA_FILES = getattr(conf, 'EXTRA_FILES', None)
 
 # Add snow to site
 SNOW_STORM = getattr(conf, 'SNOW_STORM', False)
