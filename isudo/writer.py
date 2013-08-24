@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+import shutil
 from datetime import datetime
 from itertools import chain
 
@@ -123,7 +124,10 @@ class ResourcesWriter(BaseWriter):
                         self.mkdir(post.furl, os.path.dirname(res.link))
                         s = filejoin(conf.DEPLOY_PATH, post.furl, res.link)
                         if not os.path.lexists(s):
-                            os.symlink(r, s)
+                            try:
+                                os.symlink(r, s)
+                            except:
+                                shutil.copyfile(r, s)
                     else:
                         print('#! No resource found: {0}'.format(r))
 
