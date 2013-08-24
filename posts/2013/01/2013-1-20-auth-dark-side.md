@@ -1,7 +1,7 @@
 # title: Темная сторона авторизации
 # url: auth-dark-side
 # categories: [Обзоры]
-# tags: [Auth, PassManager, Web]
+# tags: [Auth, Password Manager, Web]
 # time: 2013-01-20 21:00:00+04:00
 
 ![left](~auth.png)

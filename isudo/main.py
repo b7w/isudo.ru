@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from glob import glob
 import os
+import shutil
+from glob import glob
 from datetime import datetime
-from shutil import copytree, rmtree
 from importlib import import_module
 
 from isudo import conf
@@ -63,7 +63,10 @@ class StaticBlog:
             os.makedirs(conf.DEPLOY_PATH)
         if not os.path.lexists(deploy):
             print('# Deploy static')
-            os.symlink(template, deploy)
+            try:
+                os.symlink(template, deploy)
+            except:
+                shutil.copytree(template, deploy)
 
     def create_post(self, url):
         """
@@ -92,4 +95,4 @@ class StaticBlog:
             f.write('\n[more]\n\nend')
 
     def clear(self):
-        rmtree(conf.DEPLOY_PATH, ignore_errors=True)
+        shutil.rmtree(conf.DEPLOY_PATH, ignore_errors=True)
