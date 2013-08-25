@@ -1,8 +1,8 @@
-title: Да здравствует kotlin. Или моя ненависть к js
-url: long-live-kotlin-or-i-hate-js
-categories: [HowTo, Обзоры]
-tags: [js, jvm, kotlin]
-time: 2012-06-13 22:18:45
+# title: Да здравствует kotlin. Или моя ненависть к js
+# url: long-live-kotlin-or-i-hate-js
+# categories: [HowTo, Обзоры]
+# tags: [js, jvm, kotlin]
+# time: 2012-06-13 22:18:45
 
 
 ![left](~kotlin-logo.png)
