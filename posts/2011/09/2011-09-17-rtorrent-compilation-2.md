@@ -1,8 +1,8 @@
-title: Собираем rTorrent из исходников 2
-url: rtorrent-compilation-2
-categories: [HowTo, Ubuntu]
-tags: [rTorrent, Torrent]
-time: 2011-09-17 21:27:03
+# title: Собираем rTorrent из исходников 2
+# url: rtorrent-compilation-2
+# categories: [HowTo, Ubuntu]
+# tags: [rTorrent, Torrent]
+# time: 2011-09-17 21:27:03
 
 
 ![left](~transmission-logo.png)
