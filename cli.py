@@ -7,6 +7,7 @@ import baker
 
 from isudo import conf
 from isudo.main import StaticBlog
+from isudo.speller import YandexSpeller
 from isudo.utils import BlogError
 
 
@@ -69,6 +70,18 @@ def new(url):
     """
     blog = StaticBlog()
     blog.create_post(url)
+
+
+@baker.command
+def speller(url, fix=False):
+    """
+    Print mistakes for post, or if `fix` override it
+    """
+    speller = YandexSpeller(path=url)
+    if fix:
+        speller.fix()
+    else:
+        speller.check()
 
 
 try:
