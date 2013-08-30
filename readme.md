@@ -12,6 +12,7 @@ WP blog is so slow, so complex and need too much attention. I thing a lot what t
  * pyyaml
  * baker
  * pytz
+ * requests
 
 # Features
  * Posts in markdown
@@ -23,6 +24,7 @@ WP blog is so slow, so complex and need too much attention. I thing a lot what t
  * No comments
  * Nice js snow :-)
  * Code syntax highlighting
+ * Simple spell checker
 
 # License
 Open source, BSD license.
