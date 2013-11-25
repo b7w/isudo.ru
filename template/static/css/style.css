@@ -4,11 +4,26 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, blockquote, p, f
     padding: 0;
 }
 
+::-webkit-scrollbar {
+    width: 9px;
+    background-color: #BEC3C6;
+}
+
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: -webkit-linear-gradient(right, #666, #999);
+    border-radius: 1px;
+}
+
 body {
     background: #BEC3C6 url(../images/bg.jpg) repeat-x;
     color: #555;
     font-family: Verdana, "BitStream vera Sans", Tahoma, Helvetica, Sans-serif;
     font-size: 12px;
+    overflow-y: scroll;
 }
 
 #wrap {
