@@ -14,7 +14,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, blockquote, p, f
 }
 
 ::-webkit-scrollbar-thumb {
-    background: -webkit-linear-gradient(right, #666, #999);
+    background: -webkit-linear-gradient(right, #777, #AAA);
     border-radius: 1px;
 }
 
