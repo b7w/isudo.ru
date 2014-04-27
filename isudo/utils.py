@@ -64,6 +64,8 @@ def url(*args, last=True):
 
     :rtype: str
     """
+    if len(args) == 1 and args[0].startswith('http'):
+        return args[0]
     if conf.DOMAIN_SUB_FOLDER:
         return urljoin(conf.DOMAIN_SUB_FOLDER, *args, last=last)
     return urljoin(*args, last=last)
