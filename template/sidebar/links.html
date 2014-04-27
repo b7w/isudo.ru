@@ -4,7 +4,7 @@
         <ul>
             <li><a href="{{ url('tags') }}" title="Показыть все теги">All tags</a></li>
             {% for link, title, name in LINKS %}
-                <li><a href="{{ link }}" title="{{ title }}">{{ name }}</a></li>
+                <li><a href="{{ url(link) }}" title="{{ title }}">{{ name }}</a></li>
             {% endfor %}
         </ul>
     </div>
