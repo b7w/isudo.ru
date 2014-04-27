@@ -65,6 +65,7 @@ class Reader:
     Call `read` to read md file with `path`.
     Not thread safe.
     """
+    path = None
 
     def read_meta(self, meta):
         try:
@@ -73,7 +74,7 @@ class Reader:
             meta = meta.replace('#', '')
             meta = yaml.load(meta)
             if set(meta.keys()).issuperset(['title', 'url', 'time']):
-                return Meta.fromDict(meta)
+                return Meta.from_dict(meta)
         except MarkedYAMLError as e:
             raise BlogError('Reading meta in "{0}"\n{1}'.format(self.path, e))
 

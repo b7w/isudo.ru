@@ -18,9 +18,8 @@ class Meta:
         self.type = 'post'
         self.time = datetime.now(tz=conf.TIME_ZONE)
 
-
     @classmethod
-    def fromDict(cls, value):
+    def from_dict(cls, value):
         """
         :type value: dict
         :rtype: Meta
