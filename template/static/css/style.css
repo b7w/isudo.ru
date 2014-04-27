@@ -409,6 +409,11 @@ code {
     padding-top: 8px;
 }
 
+#sidebar-profile .image {
+    width: 70px;
+    height: 70px;
+}
+
 #sidebar-profile .info {
     width: 192px;
     float: right;

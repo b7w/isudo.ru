@@ -24,6 +24,8 @@ WRITERS = getattr(conf, 'WRITERS',
 # http://isudo.ru
 BLOG_URL = getattr(conf, 'BLOG_URL')
 
+BLOG_EMAIL = getattr(conf, 'BLOG_EMAIL')
+
 BLOG_TITLE = getattr(conf, 'BLOG_TITLE', 'BLOG TITLE')
 
 BLOG_DESCRIPTION = getattr(conf, 'BLOG_DESCRIPTION', '')
@@ -65,6 +67,7 @@ DOMAIN_SUB_FOLDER = getattr(conf, 'DOMAIN_SUB_FOLDER', '')
 TEMPLATE_KWARGS = getattr(conf, 'TEMPLATE_KWARGS',
     {
         'BLOG_URL': BLOG_URL,
+        'BLOG_EMAIL': BLOG_EMAIL,
         'BLOG_TITLE': BLOG_TITLE,
         'BLOG_DESCRIPTION': BLOG_DESCRIPTION,
         'BLOG_KEYWORDS': BLOG_KEYWORDS,

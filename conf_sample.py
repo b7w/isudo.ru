@@ -4,6 +4,8 @@ TIME_ZONE = 'Europe/Moscow'
 
 BLOG_URL = 'http://isudo.ru'
 
+BLOG_EMAIL = 'blog@isudo.ru'
+
 BLOG_TITLE = 'Black&White’s Blog'
 
 BLOG_DESCRIPTION = 'Personal B7W blog'
