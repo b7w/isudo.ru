@@ -72,14 +72,12 @@ class IndexWriter(BaseWriter):
 
         first = next(pages)
         self.render('index.html', 'list.html',
-            posts=first.entries,
-            page=first
-        )
+                    posts=first.entries,
+                    page=first)
         for page in pages:
             self.render('page/{0}/index.html'.format(page.current), 'list.html',
-                posts=page.entries,
-                page=page,
-            )
+                        posts=page.entries,
+                        page=page)
 
 
 class ErrorWriter(BaseWriter):
@@ -138,8 +136,7 @@ class PostWriter(BaseWriter):
     def write(self, posts):
         for post in posts:
             self.render(filejoin(post.furl, 'index.html'), 'post.html',
-                post=post,
-            )
+                        post=post)
 
 
 class TagsPageWriter(BaseWriter):
@@ -158,9 +155,8 @@ class TagsWriter(BaseWriter):
 
         for tag, items in posts.items():
             self.render('tag/{0}/index.html'.format(dash(tag)), 'titles.html',
-                message='Tag "{0}"'.format(tag),
-                posts=items,
-            )
+                        message='Tag "{0}"'.format(tag),
+                        posts=items)
 
 
 class CategoriesWriter(BaseWriter):
@@ -172,9 +168,8 @@ class CategoriesWriter(BaseWriter):
 
         for tag, items in posts.items():
             self.render('category/{0}/index.html'.format(dash(tag)), 'titles.html',
-                message='Category "{0}"'.format(tag),
-                posts=items,
-            )
+                        message='Category "{0}"'.format(tag),
+                        posts=items)
 
 
 class FeedWriter(BaseWriter):
@@ -185,6 +180,6 @@ class FeedWriter(BaseWriter):
         posts = sorted(posts, key=lambda x: x.meta.time, reverse=True)
 
         self.render('feed/index.html', 'feed.xml',
-            today=datetime.now(tz=conf.TIME_ZONE),
-            posts=posts[:conf.POST_PER_PAGE],
+                    today=datetime.now(tz=conf.TIME_ZONE),
+                    posts=posts[:conf.POST_PER_PAGE],
         )

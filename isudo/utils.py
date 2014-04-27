@@ -6,7 +6,7 @@ from itertools import groupby
 from isudo import conf
 
 
-def delslash(str):
+def delslash(value):
     """
     Remove slash from start and end
 
@@ -16,11 +16,11 @@ def delslash(str):
     :type str:
     :rtype: str
     """
-    if str.startswith('/'):
-        str = str[1:]
-    if str.endswith('/'):
-        str = str[:-1]
-    return str
+    if value.startswith('/'):
+        value = value[1:]
+    if value.endswith('/'):
+        value = value[:-1]
+    return value
 
 
 def urljoin(*args, last=True):
