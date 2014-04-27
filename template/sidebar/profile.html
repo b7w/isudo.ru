@@ -1,14 +1,17 @@
 <div id="sidebar-profile" class="sidebar">
     <div class="widget">
-        <a href="https://plus.google.com/{{ GOOGLE_PLUS }}">
-            <img src="{{ url('static/images/b7w.jpg', last=False) }}" class="sided" height="64px" width="64px"/>
-        </a>
+        <span class="image">
+            <a href="https://plus.google.com/{{ GOOGLE_PLUS }}">
+                <img src="{{ url('static/images/b7w.jpg', last=False) }}" class="sided" height="64px" width="64px"/>
+            </a>
+        </span>
 
-        <div class="info">
+        <span class="info">
             <a href="https://plus.google.com/{{ GOOGLE_PLUS }}" rel="me">Google plus</a>
+            &middot; <a href="mailto:{{ BLOG_EMAIL }}">Email</a>
             &middot; <a href="{{ url('feed') }}">RSS</a>
 
             <p>Come to the dark side. We have cookies :-)</p>
-        </div>
+        </span>
     </div>
 </div>
