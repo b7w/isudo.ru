@@ -20,6 +20,7 @@ def build(pattern=None, draft=False):
     blog.load(pattern=pattern)
     blog.copy_static()
     blog.build(draft=draft)
+    blog.gzip_content()
 
 
 @baker.command
