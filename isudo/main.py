@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import gzip
 import os
 import shutil
 from glob import glob
@@ -93,6 +94,18 @@ class StaticBlog:
             f.write('# time: {0}\n'.format(time))
             f.write('\n![left](~logo.png)\nHello world\n')
             f.write('\n[more]\n\nend')
+
+    def gzip_content(self):
+        content = []
+        for root, folder, files in os.walk(conf.DEPLOY_PATH):
+            for name in files:
+                if any(name.endswith(i) for i in ('.js', '.css', '.html')):
+                    path = filejoin(root, name)
+                    content.append(path)
+        for fname in content:
+            with open(fname, 'rb') as fin:
+                with gzip.open(fname + '.gz', 'wb') as fout:
+                    fout.writelines(fin)
 
     def clear(self):
         shutil.rmtree(conf.DEPLOY_PATH, ignore_errors=True)
