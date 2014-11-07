@@ -20,7 +20,16 @@ def build(pattern=None, draft=False):
     blog.load(pattern=pattern)
     blog.copy_static()
     blog.build(draft=draft)
-    blog.gzip_content()
+    #blog.gzip_content()
+
+
+@baker.command
+def deploy(profile, region):
+    """
+    Run aws cmd to copy files to S3
+    """
+    blog = StaticBlog()
+    blog.deploy(profile, region)
 
 
 @baker.command

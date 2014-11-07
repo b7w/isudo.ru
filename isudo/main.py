@@ -54,6 +54,11 @@ class StaticBlog:
             print('# {0}'.format(writer.name))
             writer.build(self.posts)
 
+    def deploy(self, profile, region):
+        bucket = conf.BLOG_URL.replace('http://', '').replace('https://', '')
+        cmd = 'aws s3 --recursive --profile {} --region {} sync deploy s3://{}'
+        os.system(cmd.format(profile, region, bucket))
+
     def copy_static(self):
         """
         Make link to static directory
