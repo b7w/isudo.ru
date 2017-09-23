@@ -2,8 +2,8 @@
 import gzip
 import os
 import shutil
-from glob import glob
 from datetime import datetime
+from glob import glob
 from importlib import import_module
 
 from isudo import conf
@@ -56,6 +56,7 @@ class StaticBlog:
 
     def deploy(self, profile, region):
         bucket = conf.BLOG_URL.replace('http://', '').replace('https://', '')
+        os.system('find -L deploy -name ".DS_Store" -exec rm -rf {} \;')
         cmd = 'aws s3 --recursive --profile {} --region {} sync deploy s3://{}'
         os.system(cmd.format(profile, region, bucket))
 
