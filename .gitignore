@@ -1,0 +1,10 @@
+\.pyc
+\.pyo
+\.DS_Store
+
+\.idea/
+
+tmp/
+*\.egg-info/
+
+conf\.py
