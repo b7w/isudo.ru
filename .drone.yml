@@ -52,6 +52,6 @@ steps:
       - pip3 install poetry
       - cp -rfp .aws ~/.aws
       - poetry run python cli.py deploy
-#    when:
-#      branch:
-#        - master
+    when:
+      branch:
+        - master
