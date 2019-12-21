@@ -142,6 +142,7 @@
           [default]
           region={{ aws_region }}
         dest: '~/.aws/config'
+        mode: '0600'
         force: no
 
     - name: Write aws credentials
@@ -151,4 +152,5 @@
           aws_access_key_id={{ aws_access_key }}
           aws_secret_access_key={{ aws_secret_key }}
         dest: '~/.aws/credentials'
+        mode: '0600'
         force: no
