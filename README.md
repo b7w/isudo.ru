@@ -1,5 +1,8 @@
 # About
-It is static blog generator. Like [pelican](https://github.com/getpelican/pelican) or [liquidluck](https://github.com/lepture/liquidluck). But I moved from my WP blog and need more back compatibility, so i wrote this. Very simple and minimalist. With tune [inove](http://wordpress.org/extend/themes/inove) template, thanks [mg12](http://www.neoease.com/).
+It is static blog generator. Like [pelican](https://github.com/getpelican/pelican) or [liquidluck](https://github.com/lepture/liquidluck).
+But I moved from my WP blog and need more back compatibility, so i wrote this. Very simple and minimalist.
+With tune [inove](http://wordpress.org/extend/themes/inove) template, thanks [mg12](http://www.neoease.com/).
+
 
 # Why
 WP blog is so slow, so complex and need too much attention. I think a lot what to do, where to move. And once I decided to write simple static engine for myself.
@@ -14,6 +17,7 @@ WP blog is so slow, so complex and need too much attention. I think a lot what t
  * pytz
  * requests
 
+
 # Features
  * Posts in markdown
  * Categories
@@ -26,7 +30,8 @@ WP blog is so slow, so complex and need too much attention. I think a lot what t
  * Code syntax highlighting
  * Simple spell checker
 
+
 # License
-Open source, BSD license.
+Open source, MIT license.
 
 Look, feel, be happy :-)
