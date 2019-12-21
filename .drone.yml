@@ -12,12 +12,17 @@ steps:
       vault_password:
         from_secret: VAULT
 
-  - name: Tests
+  - name: Install
     pull: always
     image: python:3.8-slim
     commands:
       - pip3 install poetry
       - poetry install
+
+  - name: Tests
+    pull: always
+    image: python:3.8-slim
+    commands:
       - poetry run pytest
 
   - name: Deploy
@@ -25,6 +30,6 @@ steps:
     image: python:3.8-slim
     commands:
       - poetry run python cli.py deploy
-    when:
-      branch:
-        - master
+#    when:
+#      branch:
+#        - master
