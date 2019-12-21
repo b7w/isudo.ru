@@ -19,8 +19,6 @@ steps:
       XDG_CACHE_HOME: .cache
       POETRY_VIRTUALENVS_PATH: .cache
     commands:
-      - ls -al ~/.aws/**
-      - exit
       - pip3 install poetry
       - poetry install
 
@@ -52,6 +50,7 @@ steps:
       POETRY_VIRTUALENVS_PATH: .cache
     commands:
       - pip3 install poetry
+      - cp -rfp .aws ~/.aws
       - poetry run python cli.py deploy
 #    when:
 #      branch:

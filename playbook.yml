@@ -132,7 +132,7 @@
 
     - name: Create aws directory
       file:
-        path: '~/.aws'
+        path: '.aws'
         state: directory
         mode: '0755'
 
@@ -141,7 +141,7 @@
         content: |
           [default]
           region={{ aws_region }}
-        dest: '~/.aws/config'
+        dest: '.aws/config'
         mode: '0600'
         force: no
 
@@ -151,6 +151,6 @@
           [default]
           aws_access_key_id={{ aws_access_key }}
           aws_secret_access_key={{ aws_secret_key }}
-        dest: '~/.aws/credentials'
+        dest: '.aws/credentials'
         mode: '0600'
         force: no
