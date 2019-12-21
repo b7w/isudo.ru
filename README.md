@@ -1,3 +1,10 @@
+isudo.ru
+========
+
+[![MIT license](https://img.shields.io/badge/License-MIT-yellow.svg)]()
+[![Build Status](https://drone.b7w.me/api/badges/b7w/isudo.ru/status.svg)](https://drone.b7w.me/b7w/isudo.ru)
+
+
 # About
 It is static blog generator. Like [pelican](https://github.com/getpelican/pelican) or [liquidluck](https://github.com/lepture/liquidluck).
 But I moved from my WP blog and need more back compatibility, so i wrote this. Very simple and minimalist.
