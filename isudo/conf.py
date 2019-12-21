@@ -30,9 +30,6 @@ BLOG_DESCRIPTION = getattr(conf, 'BLOG_DESCRIPTION', '')
 # String with key words split by comma
 BLOG_KEYWORDS = getattr(conf, 'BLOG_KEYWORDS', '')
 
-# User google plus id - long number in url
-GOOGLE_PLUS = getattr(conf, 'GOOGLE_PLUS', None)
-
 # Some extra header, for example meta yandex verification
 EXTRA_HEADER = getattr(conf, 'EXTRA_HEADER', '')
 
@@ -67,7 +64,6 @@ TEMPLATE_KWARGS = getattr(conf, 'TEMPLATE_KWARGS', {
     'BLOG_TITLE': BLOG_TITLE,
     'BLOG_DESCRIPTION': BLOG_DESCRIPTION,
     'BLOG_KEYWORDS': BLOG_KEYWORDS,
-    'GOOGLE_PLUS': GOOGLE_PLUS,
     'EXTRA_HEADER': EXTRA_HEADER,
     'EXTRA_HTML': EXTRA_HTML,
     'SNOW_STORM': SNOW_STORM,
