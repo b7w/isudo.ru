@@ -3,6 +3,14 @@ kind: pipeline
 name: isudo.ru CI/CD
 
 steps:
+  - name: Setup config
+    pull: always
+    image: plugins/ansible:1
+    settings:
+      playbook: playbook.yml
+      vault_password:
+        from_secret: VAULT
+
   - name: Tests
     pull: always
     image: python:3.8-slim
@@ -14,11 +22,8 @@ steps:
   - name: Deploy
     pull: always
     image: python:3.8-slim
-    environment:
-      CONFIG:
-        from_secret: CONFIG
     commands:
-      - echo "$CONFIG" > /tmp/config.py
+      - poetry run python cli.py deploy
     when:
       branch:
         - master
