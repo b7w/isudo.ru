@@ -1,0 +1,24 @@
+---
+kind: pipeline
+name: isudo.ru CI/CD
+
+steps:
+  - name: Tests
+    pull: always
+    image: python:3.8-slim
+    commands:
+      - pip3 install poetry
+      - poetry install
+      - poetry run pytest
+
+  - name: Deploy
+    pull: always
+    image: python:3.8-slim
+    environment:
+      CONFIG:
+        from_secret: CONFIG
+    commands:
+      - echo "$CONFIG" > /tmp/config.py
+    when:
+      branch:
+        - master
