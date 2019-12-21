@@ -128,7 +128,15 @@
     - name: Write config
       copy:
         content: '{{ conf_py }}'
-        dest: 'conf.py.tmp'
+        dest: 'conf.py'
+
+    - name: Write aws config
+      copy:
+        content: |
+          [default]
+          region={{ aws_region }}
+        dest: '~/.aws/config'
+        force: no
 
     - name: Write aws credentials
       copy:
@@ -136,13 +144,5 @@
           [default]
           aws_access_key_id={{ aws_access_key }}
           aws_secret_access_key={{ aws_secret_key }}
-        #        dest: '~/.aws/credentials'
-        dest: 'credentials'
-
-    - name: Write aws config
-      copy:
-        content: |
-          [default]
-          region={{ aws_region }}
-        #        dest: '~/.aws/credentials'
-        dest: 'config'
+        dest: '~/.aws/credentials'
+        force: no

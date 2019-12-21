@@ -1,7 +1,7 @@
 isudo.ru
 ========
 
-[![MIT license](https://img.shields.io/badge/License-MIT-yellow.svg)]()
+![License](https://img.shields.io/github/license/b7w/isudo.ru)
 [![Build Status](https://drone.b7w.me/api/badges/b7w/isudo.ru/status.svg)](https://drone.b7w.me/b7w/isudo.ru)
 
 
@@ -28,7 +28,7 @@ WP blog is so slow, so complex and need too much attention. I think a lot what t
 # Features
  * Posts in markdown
  * Categories
- * Tags cloud
+ * Tags cloud       
  * Url from post meta data
  * Copy relative resources that mentioned in post
  * Rss feed for post

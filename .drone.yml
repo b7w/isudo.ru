@@ -8,6 +8,7 @@ steps:
     image: plugins/ansible:1
     settings:
       playbook: playbook.yml
+      inventory:
       vault_password:
         from_secret: VAULT
 
