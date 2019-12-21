@@ -15,19 +15,30 @@ steps:
   - name: Install
     pull: always
     image: python:3.8-slim
+    environment:
+      XDG_CACHE_HOME: .cache
+      POETRY_VIRTUALENVS_PATH: .cache
     commands:
       - pip3 install poetry
       - poetry install
+      - ls .cache
 
   - name: Tests
     pull: always
     image: python:3.8-slim
+    environment:
+      XDG_CACHE_HOME: .cache
+      POETRY_VIRTUALENVS_PATH: .cache
     commands:
+      - pip3 install poetry
       - poetry run pytest
 
   - name: Deploy
     pull: always
     image: python:3.8-slim
+    environment:
+      XDG_CACHE_HOME: .cache
+      POETRY_VIRTUALENVS_PATH: .cache
     commands:
       - poetry run python cli.py deploy
 #    when:
