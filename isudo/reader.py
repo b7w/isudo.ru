@@ -19,8 +19,8 @@ class Resource:
     `RE` field - find all links resources
     `RE2` field - find all resources
     """
-    RE = re.compile('\(~[\w\./-]+\)')
-    RE2 = re.compile('\[~[\w\./-]+\]')
+    RE = re.compile(r'\(~[\w./-]+\)')
+    RE2 = re.compile(r'\[~[\w./-]+\]')
 
     def __init__(self, macros, post, type=RE):
         """
