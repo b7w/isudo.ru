@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from datetime import datetime
 import re
+from datetime import datetime
 
 from markdown import markdown
 
@@ -63,7 +63,7 @@ class Post:
         """
         text = self.text.replace('[clear]', '')
         if not images:
-            text = re.sub('!\[\w+\]\(~[\w\./-]+\)', '', text)
+            text = re.sub(r'!\[\w+\]\(~[\w./-]+\)', '', text)
         index = text.find('[more]')
         if index > 0:
             return self._render(text[0:index])

@@ -57,8 +57,10 @@ class StaticBlog:
     def deploy(self, profile, region):
         bucket = conf.BLOG_URL.replace('http://', '').replace('https://', '')
         os.system('find -L deploy -name ".DS_Store" -exec rm -rf {} \;')
-        cmd = 'aws s3 --recursive --profile {} --region {} sync deploy s3://{}'
-        os.system(cmd.format(profile, region, bucket))
+        cmd = 'aws s3 --recursive --profile {} {} sync deploy s3://{}'
+        p = '--profile {}'.format(profile) if region else ''
+        r = '--region {}'.format(region) if region else ''
+        os.system(cmd.format(p, r, bucket))
 
     def copy_static(self):
         """

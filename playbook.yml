@@ -130,6 +130,12 @@
         content: '{{ conf_py }}'
         dest: 'conf.py'
 
+    - name: Create aws directory
+      file:
+        path: '~/.aws'
+        state: directory
+        mode: '0755'
+
     - name: Write aws config
       copy:
         content: |
