@@ -1,7 +1,0 @@
-requests
-jinja2
-markdown
-pygments
-pyyaml
-baker
-pytz
