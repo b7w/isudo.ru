@@ -50,8 +50,7 @@ steps:
       POETRY_VIRTUALENVS_PATH: .cache
     commands:
       - pip3 install poetry
-#      - poetry run python cli.py deploy
-      - du -h
-#    when:
-#      branch:
-#        - master
+      - poetry run python cli.py deploy
+    when:
+      branch:
+        - master
