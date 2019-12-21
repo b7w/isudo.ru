@@ -22,7 +22,7 @@ steps:
       - pip3 install poetry
       - poetry install
 
-  - name: Tests
+  - name: Test
     pull: always
     image: python:3.8-slim
     environment:
@@ -50,7 +50,7 @@ steps:
       POETRY_VIRTUALENVS_PATH: .cache
     commands:
       - pip3 install poetry
-      - poetry run python cli.py deploy
+#      - poetry run python cli.py deploy
       - du -h
 #    when:
 #      branch:

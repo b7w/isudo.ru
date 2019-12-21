@@ -3,6 +3,7 @@ import re
 from datetime import datetime
 
 from markdown import markdown
+from markdown.extensions.codehilite import CodeHiliteExtension
 
 from isudo import conf
 from isudo.utils import urljoin, filejoin, BlogError
@@ -72,7 +73,7 @@ class Post:
     def _render(self, text):
         for res in self.resources:
             text = res.replace(text)
-        return markdown(text, ['codehilite(noclasses=True)'])
+        return markdown(text, extensions=[CodeHiliteExtension(noclasses=True)])
 
     @property
     def title(self):
