@@ -72,7 +72,7 @@ class Reader:
             if not all(i.startswith('# ') for i in meta.split('\n')):
                 raise BlogError('Meta not start with "# "\n\n{0}'.format(meta))
             meta = meta.replace('#', '')
-            meta = yaml.load(meta)
+            meta = yaml.safe_load(meta)
             if set(meta.keys()).issuperset(['title', 'url', 'time']):
                 return Meta.from_dict(meta)
         except MarkedYAMLError as e:
