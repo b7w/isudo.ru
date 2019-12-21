@@ -51,6 +51,6 @@ steps:
     commands:
       - pip3 install poetry
       - poetry run python cli.py deploy
-    when:
-      branch:
-        - master
+#    when:
+#      branch:
+#        - master
