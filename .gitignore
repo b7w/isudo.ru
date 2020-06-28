@@ -8,4 +8,4 @@ tmp/
 *\.egg-info/
 
 deploy/
-conf\.py
+conf\.py*

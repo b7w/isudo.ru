@@ -56,21 +56,11 @@ def clear():
 
 
 @baker.command
-def hg(arg):
+def vault():
     """
-    Some tools to work with mercurial.
-
-    hg up - check, update, build.
+    Encrypt conf.py file for playbook.yml conf_py variable
     """
-    if arg == 'up' or arg == 'update':
-        check = os.system('hg incoming --quiet')
-        if check == 0:
-            print('# Found changes, loading')
-            os.system('hg pull -u --quiet')
-            # to run new code version
-            os.system('python3 cli.py build')
-        else:
-            print('# No changes')
+    os.system('ansible-vault encrypt conf.py --output conf.py.vault')
 
 
 @baker.command
