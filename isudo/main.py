@@ -72,10 +72,7 @@ class StaticBlog:
             os.makedirs(conf.DEPLOY_PATH)
         if not os.path.lexists(deploy):
             print('# Deploy static')
-            try:
-                os.symlink(template, deploy)
-            except:
-                shutil.copytree(template, deploy)
+            shutil.copytree(template, deploy)
 
     def create_post(self, url):
         """
