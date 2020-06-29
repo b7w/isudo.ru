@@ -182,4 +182,4 @@ class FeedWriter(BaseWriter):
         self.render('feed/index.html', 'feed.xml',
                     today=datetime.now(tz=conf.TIME_ZONE),
                     posts=posts[:conf.POST_PER_PAGE],
-        )
+                    )

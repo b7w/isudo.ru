@@ -2,8 +2,7 @@
 # url: traefik-and-elb
 # categories: [Programming]
 # tags: [Яндекс.Облако, Traefik, Proxy, ELB, Docker, docker-compose]
-# time: 2020-06-28 12:00:00.000000+03:00
-# draft: true
+# time: 2020-06-29 12:00:00.000000+03:00
 
 ![left](~traefik.png)
 В очередной раз сетуя что в nginx нет встроенной поддержки let's encrypt, Я пошёл на просторы интернета поискать что-нить новенькое.
@@ -36,7 +35,7 @@
 
 Давайте попробуем все это развернуть и потестить. Заодно поиграемся с новым [Яндекс.Облаком](https://cloud.yandex.ru/). Terraform брать не будем ради таких забав, возьмем обычный [CLI](https://cloud.yandex.ru/docs/cli/quickstart).  
 
-Создадим две виртулки с предустановленным docker, это что бы незапариваться с установкой самим. 
+Создадим две виртуалки с предустановленным docker, это что бы незапариваться с установкой самим. 
 
     :::sh
     > yc compute instance create-with-container \
