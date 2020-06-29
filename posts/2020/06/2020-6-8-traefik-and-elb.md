@@ -3,6 +3,7 @@
 # categories: [Programming]
 # tags: [Яндекс.Облако, Traefik, Proxy, ELB, Docker, docker-compose]
 # time: 2020-06-28 12:00:00.000000+03:00
+# draft: true
 
 ![left](~traefik.png)
 В очередной раз сетуя что в nginx нет встроенной поддержки let's encrypt, Я пошёл на просторы интернета поискать что-нить новенькое.
