@@ -1,26 +1,21 @@
 ---
 kind: pipeline
+type: docker
 name: isudo.ru CI/CD
 
 steps:
-  - name: Setup config
-    pull: always
-    image: plugins/ansible:1
-    settings:
-      playbook: playbook.yml
-      inventory: not-exists.ini
-      vault_password:
-        from_secret: VAULT
-
   - name: Install
     pull: always
     image: python:3.8-slim
     environment:
       XDG_CACHE_HOME: .cache
       POETRY_VIRTUALENVS_PATH: .cache
+      CONF_PY:
+        from_secret: CONF_PY
     commands:
       - pip3 install poetry
       - poetry install
+      - echo "$CONF_PY" > conf.py
 
   - name: Test
     pull: always
@@ -48,10 +43,14 @@ steps:
     environment:
       XDG_CACHE_HOME: .cache
       POETRY_VIRTUALENVS_PATH: .cache
+      AWS_ACCESS_KEY_ID:
+        from_secret: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY:
+        from_secret: AWS_SECRET_ACCESS_KEY
     commands:
       - pip3 install poetry
-      - cp -rfp .aws ~/.aws
-      - poetry run python cli.py deploy
+      - poetry run python cli.py deploy --region=ru-central1 --endpoint=https://storage.yandexcloud.net
     when:
       branch:
         - master
+        - feature/yandex-cloud
