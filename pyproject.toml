@@ -7,19 +7,19 @@ license = "MIT"
 
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 requests = "^2.22"
-jinja2 = "^2.10"
+jinja2 = "^3.0"
 markdown = "^3.1"
 pygments = "^2.5"
-pyyaml = "^5.2"
+pyyaml = "^5.4"
 baker = "^1.3"
-pytz = "^2019.3"
+pytz = "^2021"
 awscli = "^1.16"
 
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^7.1"
 
 
 [build-system]
