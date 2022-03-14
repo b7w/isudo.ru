@@ -24,12 +24,12 @@ def build(pattern=None, draft=False):
 
 
 @baker.command
-def deploy(profile=None, region=None):
+def deploy(profile=None, region=None, endpoint=None):
     """
     Run aws cmd to copy files to S3
     """
     blog = StaticBlog()
-    blog.deploy(profile, region)
+    blog.deploy(profile, region, endpoint)
 
 
 @baker.command

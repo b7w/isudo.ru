@@ -54,13 +54,14 @@ class StaticBlog:
             print('# {0}'.format(writer.name))
             writer.build(self.posts)
 
-    def deploy(self, profile, region):
+    def deploy(self, profile, region, endpoint):
         bucket = conf.BLOG_URL.replace('http://', '').replace('https://', '')
         os.system('find -L deploy -name ".DS_Store" -exec rm -rf {} \;')
-        cmd = 'aws s3 {} {} sync deploy s3://{}'
-        p = '--profile {}'.format(profile) if region else ''
+        cmd = 'aws s3 {} {} {} sync deploy s3://{}'
+        e = '--endpoint-url {}'.format(endpoint) if endpoint else ''
+        p = '--profile {}'.format(profile) if profile else ''
         r = '--region {}'.format(region) if region else ''
-        os.system(cmd.format(p, r, bucket))
+        os.system(cmd.format(p, r, e, bucket))
 
     def copy_static(self):
         """
