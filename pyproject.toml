@@ -4,22 +4,22 @@ version = "0.1.0"
 description = "Personal blog"
 authors = ["B7W <b7w@isudo.ru>"]
 license = "MIT"
-
+package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.8"
-requests = "^2.22"
+python = "^3.11"
+requests = "^2.0"
 jinja2 = "^3.0"
-markdown = "^3.1"
-pygments = "^2.5"
-pyyaml = "^5.4"
-baker = "^1.3"
-pytz = "^2021"
-awscli = "^1.16"
+markdown = "^3.0"
+pygments = "^2.0"
+pyyaml = "^6.0"
+pytz = ">=2025"
+awscli = "^1.0"
+fire = "^0.7"
 
 
-[tool.poetry.dev-dependencies]
-pytest = "^7.1"
+[tool.poetry.group.dev.dependencies]
+pytest = "^9.0"
 
 
 [build-system]
